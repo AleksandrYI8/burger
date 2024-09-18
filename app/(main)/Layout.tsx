@@ -8,7 +8,7 @@ interface LayoutProps {
 }
 
 
-const arr = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4]
+const arr = [1, 2, 3, 4, 4, 4, 4, 4, 4, 44,4,4,4,4]
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -34,7 +34,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       </header>
       <div className="flex w-full">
-        <aside className='mt-[10vh] sticky top-[10%] h-[20vh]  rounded-[15px] w-[25%] bg-white text-black ml-[5%] p-[1%]'>
+        <aside className='mt-[10vh] sticky top-[5%] h-[20vh]  rounded-[15px] w-[25%] bg-white text-black ml-[5%] p-[1%]'>
           <div className="flex  justify-between border-b mb-[10px] items-center">
             <h2 className='text-[25px] font-bold'>Корзина</h2>
             <p className='bg-gray-200 p-[6px] pt-[2px] pb-[2px] rounded'>0</p>
