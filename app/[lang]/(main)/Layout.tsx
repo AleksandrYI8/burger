@@ -25,7 +25,7 @@ const Layout = ({ children, translation }: LayoutProps) => {
     { id: 7, title: translation.header.category.titleSeventh },
     { id: 8, title: translation.header.category.titleEighth },
   ]
-
+ 
   return (
     <div className="bg-gray-100">
       <header className=' bg-gray-100 w-full mb-[3vh]'>

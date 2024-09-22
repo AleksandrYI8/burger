@@ -1,12 +1,13 @@
 import Layout from "./Layout";
 import Products from "@/components/Products";
 import { getDictionary } from "../dictionaries";
+import Modal from "@/components/hoc/modal";
 
 
 
 
 
-export default async function Home({params :{lang},}: {params: {lang: string};}) {
+export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
     const translation = await getDictionary(lang)
 
     const arr = [
@@ -27,6 +28,10 @@ export default async function Home({params :{lang},}: {params: {lang: string};})
             <div className="w-full flex-wrap bg-gray-100 flex p-[1%] gap-[2%]">
 
                 <Products arr={arr} />
+            </div>
+            <div className="">
+                
+
             </div>
         </Layout>
     );
