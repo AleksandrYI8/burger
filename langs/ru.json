@@ -1,0 +1,34 @@
+{
+  "header": {
+    "headerTitle": "Только самые",
+    "headerTitleSec": "сочные бургеры",
+    "deliv": "Бесплатная доставка от",
+    "category": {
+      "titleFirst": "Бургеры",
+      "titleSecond": "Пицца",
+      "titleTherd": "Хот-доги",
+      "titleFourth": "Сэндвичи",
+      "titleFivth": "Тортильи",
+      "titleSixth": "Шаурма",
+      "titleSeventh": "Закуски",
+      "titleEighth": "Десерты"
+    }
+  },
+  "acide": {
+    "cart": "Корзина",
+    "sleng": "Пока что пусто:"
+  },
+  "main": {
+    "mainText": "Бургеры",
+    "titleFirst": "Мясная бомба",
+    "titleSecond": "Вегетарианский бургер",
+    "titleTherd": "Куриный бургер",
+    "titleFourth": "Бургер Двойной Чеддер",
+    "titleFivth": "Бургер BBQ",
+    "titleSixth": "Бургер с острым перцем"
+  },
+  "footer": {
+    "number": "Номер для доставки",
+    "media": "Мы в социальных сетях"
+  }
+}

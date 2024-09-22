@@ -1,0 +1,34 @@
+{
+  "header": {
+    "headerTitle": "Only the most",
+    "headerTitleSec": "juicy burgers",
+    "deliv": "Free delivery from",
+    "category": {
+      "titleFirst": "Burgers",
+      "titleSecond": "Pizza",
+      "titleTherd": "Hot dogs",
+      "titleFourth": "Sandwiches",
+      "titleFivth": "Tortillas",
+      "titleSixth": "Shawarma",
+      "titleSeventh": "Snacks",
+      "titleEighth": "Desserts"
+    }
+  },
+  "acide": {
+    "cart": "Cart",
+    "sleng": "It's empty for now:"
+  },
+  "main": {
+    "mainText": "Burgers",
+    "titleFirst": "Beef bomb",
+    "titleSecond": "Veggie burger",
+    "titleTherd": "Chiken burger",
+    "titleFourth": "Burger Double Cheddar",
+    "titleFivth": "BBQ burger",
+    "titleSixth": "Spicy pepper burger"
+  },
+  "footer": {
+    "number": "Number for delivery",
+    "media": "We are on social networks"
+  }
+}
