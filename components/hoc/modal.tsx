@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ children, Button }) => {
     }, [isOpend]);
 
 
-    return (
+    return ( 
         <>
             <div onClick={() => setIsOpend(true)}>
                 {Button}

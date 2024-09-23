@@ -10,17 +10,13 @@ type Item = {
 };
 
 type Props = {
-  arr: Item[];
+  item: any;
 };
 
-const Products: React.FC<Props> = ({ arr }) => {
+const Products: React.FC<Props> = ({ item }) => {
   return (
     <>
-      {
-        arr.map((item) => (
-
-
-          <>
+      {         
             <div
               key={item.id}
               className="p-[1%] rounded-[15px] bg-white mb-[2%] w-[30%] text-black"
@@ -67,9 +63,9 @@ const Products: React.FC<Props> = ({ arr }) => {
 
 
             </div>
-          </>
+          
 
-        ))
+        
       }
     </>
   );
