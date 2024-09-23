@@ -3,10 +3,11 @@
 import React, { ReactNode } from 'react';
 
 interface AddFormProps {
-    children: ReactNode;
-}
-
-const AddForm: React.FC<AddFormProps> = () => {
+    lang: string;
+    translation: Record<string, string>; // Пример структуры перевода
+  }
+  
+  const AddForm: React.FC<AddFormProps> = ({ lang }) => {
 
 
     async function onSubmit(e: any) {
@@ -24,14 +25,33 @@ const AddForm: React.FC<AddFormProps> = () => {
             en: menu.title,
         }
 
-        menu.descriptions= {
+        menu.description= {
             ru: menu.description,
             en: menu.description,
         }
 
-        console.log(menu);
+            const res = await fetch(`http://localhost:3000/${lang}/api/menu`,{
+            method : "POST",
+            body: JSON.stringify(menu),
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+            })
+
+        console.log(res);
+        
+
+        const data = await res.json()
+
+        console.log(data);
+
+        
+        
+        
 
     }
+
 
     return (
         <>

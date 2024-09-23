@@ -1,17 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import AddForm from './AddForm';
+import { getDictionary } from '@/app/[lang]/dictionaries';
 
-interface pageProps {
-    children: ReactNode;
+interface PageProps {
+  params: { lang: string };
 }
 
-const page: React.FC<pageProps> = () => {
-    return (
-        <>
-        <AddForm children={undefined}/>
+export default async function Page({ params: { lang } }: PageProps) {
+  const translation = await getDictionary(lang);
 
-        </>
-    );
+  return (
+    <>
+      <AddForm lang={lang} translation={translation} />
+    </>
+  );
 };
-
-export default page;

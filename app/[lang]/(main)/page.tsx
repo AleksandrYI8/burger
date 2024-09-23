@@ -7,14 +7,14 @@ import { Menu } from "@/models/menu";
 export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
     const translation = await getDictionary(lang)
 
-    /* const arr = [
+    const arr = [
         { id: 1, price: 689, title: translation.main.titleFirst, weight: '520г' },
         { id: 2, price: 499, title: translation.main.titleSecond, weight: '350г' },
         { id: 3, price: 599, title: translation.main.titleTherd, weight: '450г' },
         { id: 4, price: 749, title: translation.main.titleFourth, weight: '600г' },
         { id: 5, price: 529, title: translation.main.titleFivth, weight: '450г' },
         { id: 6, price: 579, title: translation.main.titleSixth, weight: '470г' },
-    ]; */
+    ]; 
     const res = await fetch(`http://localhost:3000/${lang}/api/menu`)
     console.log(res);
 
