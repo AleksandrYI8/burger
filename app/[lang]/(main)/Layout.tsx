@@ -69,8 +69,8 @@ const Layout = ({ children, translation }: LayoutProps) => {
           <div className="">
             <h3 className='whitespace-nowrap text-[24px] mb-[10px]' >{translation.footer.media}</h3>
             <div className="flex gap-[20px] justify-center">
-              <img src="/images/wk.svg" alt="wk" />
-              <img src="/images/tg.svg" alt="tg" />
+              <Image src="/images/wk.svg" alt="wk" width={25} height={25}/>
+              <Image src="/images/tg.svg" alt="tg" width={25} height={25}/>
             </div>
           </div>
 

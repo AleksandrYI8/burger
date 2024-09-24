@@ -1,24 +1,24 @@
 import clientPromise from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (res: NextResponse, req: NextRequest) => {
-
+export const GET = async () => {
     try {
-        const client = await clientPromise
+        const client = await clientPromise;
+        const db = client.db('mydatabase');
 
-        const db = client.db('mydatabase')
+        const menu = await db.collection("menu").find().toArray();
 
-        const menu = await db.collection("menu").find().toArray()
-
-        return NextResponse.json({ success: true, data: "got me" })
+        return NextResponse.json({ success: true, data: menu, message: "success" });
 
     } catch (e: any) {
-        return NextResponse.json({ success: false, message: e.message })
+        return NextResponse.json({ success: false, message: e.message }, { status: 500 });
     }
+};
 
-}
 
-export const PATCH = async (req: NextRequest) => {
+
+
+export const POST = async (req: NextRequest) => {
 
     try {
         const client = await clientPromise

@@ -30,7 +30,7 @@ interface AddFormProps {
             en: menu.description,
         }
 
-            const res = await fetch(`http://localhost:3000/${lang}/api/menu`,{
+            const res = await fetch(`http://localhost:3000/api/menu`,{
             method : "POST",
             body: JSON.stringify(menu),
             headers: {
@@ -40,16 +40,7 @@ interface AddFormProps {
             })
 
         console.log(res);
-        
-
-        const data = await res.json()
-
-        console.log(data);
-
-        
-        
-        
-
+                
     }
 
 
