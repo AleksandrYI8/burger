@@ -25,11 +25,6 @@ interface AddFormProps {
             en: menu.title,
         }
 
-        menu.description= {
-            ru: menu.description,
-            en: menu.description,
-        }
-
             const res = await fetch(`http://localhost:3000/api/menu`,{
             method : "POST",
             body: JSON.stringify(menu),

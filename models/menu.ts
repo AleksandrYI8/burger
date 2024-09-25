@@ -3,15 +3,11 @@ type Translation = {
     en: string
 }
 
-type Translation_descr = {
-    ru: string;
-    en: string
-}
 
 export type Menu = {
     _id: string;
     titles: Translation;
-    description: Translation_descr;
+    description: string;
     price: number;
     weight: string;
     images: string[];

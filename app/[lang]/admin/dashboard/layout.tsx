@@ -31,7 +31,7 @@ const Dashboard: React.FC<DashboardProps> = ({children}: {children: ReactNode}) 
                 </Link>
                 </div>
 
-                <Link href="/admin/dashboard/menu">
+                <Link href="/">
                     <button
                     className='w-full text-xl hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-blue-950 transition-[.3s]'
                     >Log out</button>

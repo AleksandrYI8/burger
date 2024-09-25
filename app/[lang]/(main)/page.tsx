@@ -10,13 +10,13 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
     const res = await fetch('http://localhost:3000/api/menu', {
         method: 'GET',
         headers: {
+            'Cache-Control': 'no-cache',  
             'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache'  
         }
     });
     
     const data = await res.json();
-    console.log({ data })
+    console.log(data)
 
 
     return (
@@ -28,7 +28,7 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
 
 
                  {data.data.map((item: Menu) => {
-                    return <Products key={item._id} item={item} />
+                    return <Products key={item._id} item={item} translation={translation} lang_={lang} />
                 })} 
 
 

@@ -25,7 +25,8 @@
     "titleTherd": "Chiken burger",
     "titleFourth": "Burger Double Cheddar",
     "titleFivth": "BBQ burger",
-    "titleSixth": "Spicy pepper burger"
+    "titleSixth": "Spicy pepper burger",
+    "add_button": "Add"
   },
   "footer": {
     "number": "Number for delivery",
