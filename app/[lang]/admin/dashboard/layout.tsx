@@ -29,6 +29,12 @@ const Dashboard: React.FC<DashboardProps> = ({children}: {children: ReactNode}) 
                     className='w-full hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-blue-950 transition-[.3s]'
                     >Users</button>
                 </Link>
+
+                <Link href="/admin/dashboard/category">
+                    <button
+                    className='w-full hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-blue-950 transition-[.3s]'
+                    >Category</button>
+                </Link>
                 </div>
 
                 <Link href="/">

@@ -13,19 +13,20 @@ interface LayoutProps {
   };
 }
 
-const Layout = ({ children, translation }: LayoutProps) => {
+const Layout = async ({ children, translation }: LayoutProps) => {
 
-  const arr = [
-    { id: 1, title: translation.header.category.titleFirst },
-    { id: 2, title: translation.header.category.titleSecond },
-    { id: 3, title: translation.header.category.titleTherd },
-    { id: 4, title: translation.header.category.titleFourth},
-    { id: 5, title: translation.header.category.titleFivth },
-    { id: 6, title: translation.header.category.titleSixth },
-    { id: 7, title: translation.header.category.titleSeventh },
-    { id: 8, title: translation.header.category.titleEighth },
-  ]
- 
+
+  const res_cat = await fetch('http://localhost:3000/api/category', {
+    method: 'GET',
+    headers: {
+      'Cache-Control': 'no-cache',
+      'Content-Type': 'application/json',
+    }
+  });
+
+  const data_cat = await res_cat.json();
+  console.log(data_cat)
+
   return (
     <div className="bg-gray-100">
       <header className=' bg-gray-100 w-full mb-[3vh]'>
@@ -40,7 +41,7 @@ const Layout = ({ children, translation }: LayoutProps) => {
           </div>
         </div>
         <ul className=" flex gap-[3%] scrollbar-hidden pr-[5  %] pl-[5%] overflow-x-auto ">
-          <Category arr={arr} />
+          <Category arr={data_cat.data} />
         </ul>
 
       </header>
@@ -69,8 +70,8 @@ const Layout = ({ children, translation }: LayoutProps) => {
           <div className="">
             <h3 className='whitespace-nowrap text-[24px] mb-[10px]' >{translation.footer.media}</h3>
             <div className="flex gap-[20px] justify-center">
-              <Image src="/images/wk.svg" alt="wk" width={25} height={25}/>
-              <Image src="/images/tg.svg" alt="tg" width={25} height={25}/>
+              <Image src="/images/wk.svg" alt="wk" width={25} height={25} />
+              <Image src="/images/tg.svg" alt="tg" width={25} height={25} />
             </div>
           </div>
 

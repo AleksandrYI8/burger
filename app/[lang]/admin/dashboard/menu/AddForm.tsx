@@ -35,6 +35,10 @@ interface AddFormProps {
             })
 
         console.log(res);
+
+        if(res.status == 200 || res.status == 201 ){
+            alert("success")
+        }
                 
     }
 
