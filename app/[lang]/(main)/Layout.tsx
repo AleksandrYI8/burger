@@ -1,8 +1,7 @@
 // components/Layout.tsx
 import Image from 'next/image';
-import { ReactNode } from 'react';
-import Category from '@/components/Category';
-import { getDictionary } from '../dictionaries';
+import { Category} from '@/models/category';
+import CategoryReload from '@/components/CategoryReload';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,8 +18,8 @@ const Layout = async ({ children, translation }: LayoutProps) => {
   const res_cat = await fetch('http://localhost:3000/api/category', {
     method: 'GET',
     headers: {
-      'Cache-Control': 'no-cache',
       'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',  
     }
   });
 
@@ -41,7 +40,9 @@ const Layout = async ({ children, translation }: LayoutProps) => {
           </div>
         </div>
         <ul className=" flex gap-[3%] scrollbar-hidden pr-[5  %] pl-[5%] overflow-x-auto ">
-          <Category arr={data_cat.data} />
+        {data_cat.data.map((item: Category) => {
+                    return <CategoryReload item={item}/>
+                })}  
         </ul>
 
       </header>

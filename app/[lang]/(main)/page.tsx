@@ -2,23 +2,23 @@ import Layout from "./Layout";
 import Products from "@/components/Products";
 import { getDictionary } from "../dictionaries";
 import { Menu } from "@/models/menu";
+import { GetServerSideProps } from "next";
+
 
 
 export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
     const translation = await getDictionary(lang)
 
-    const res = await fetch('http://localhost:3000/api/menu',{
+     const res = await fetch('http://localhost:3000/api/menu',{
         method: 'GET',
         headers: {
-            'Cache-Control': 'no-cache',  
             'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache',  
         }
     });
     
     const data = await res.json();
-    console.log(data.data)
-
-
+    console.log(data.data) 
 
     return (
         <Layout translation={translation}>
