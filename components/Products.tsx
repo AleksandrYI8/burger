@@ -22,7 +22,7 @@ type Props = {
   lang_: any
 };
 
-const Products: React.FC<Props> = ({ item, translation, lang_, }) => {
+const Products: React.FC<Props> = ({ item, translation, lang_}) => {
   console.log(lang_);
   
 

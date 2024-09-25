@@ -7,7 +7,7 @@ import { Menu } from "@/models/menu";
 export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
     const translation = await getDictionary(lang)
 
-    const res = await fetch('http://localhost:3000/api/menu', {
+    const res = await fetch('http://localhost:3000/api/menu',{
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache',  
@@ -16,7 +16,7 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
     });
     
     const data = await res.json();
-    console.log(data)
+    console.log(data.data)
 
 
     return (
@@ -28,7 +28,7 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
 
 
                  {data.data.map((item: Menu) => {
-                    return <Products key={item._id} item={item} translation={translation} lang_={lang} />
+                    return <Products item={item} translation={translation} lang_={lang}  />
                 })} 
 
 
