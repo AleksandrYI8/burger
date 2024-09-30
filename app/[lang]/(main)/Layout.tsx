@@ -15,16 +15,12 @@ interface LayoutProps {
 const Layout = async ({ children, translation }: LayoutProps) => {
 
 
-  const res_cat = await fetch('http://localhost:3000/api/category', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',  
-    }
-  });
+  const res = await fetch("http://localhost:3000/api/category", {cache: "no-cache"});
+	console.log(res);
 
-  const data_cat = await res_cat.json();
-  console.log(data_cat)
+	const {data} = await res.json();
+
+	console.log(data);
 
   return (
     <div className="bg-gray-100">
@@ -40,7 +36,7 @@ const Layout = async ({ children, translation }: LayoutProps) => {
           </div>
         </div>
         <ul className=" flex gap-[3%] scrollbar-hidden pr-[5  %] pl-[5%] overflow-x-auto ">
-        {data_cat.data.map((item: Category) => {
+        {data.map((item: Category) => {
                     return <CategoryReload item={item}/>
                 })}  
         </ul>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import Category from '@/components/Category';
+import { Category } from '@/models/category';
 import AddFormCAt from './AddFormCat';
 
 interface PageProps {

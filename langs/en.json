@@ -31,5 +31,10 @@
   "footer": {
     "number": "Number for delivery",
     "media": "We are on social networks"
+  },
+  "modal": {
+    "btn_add": "Add",
+    "composition": "Composition"
   }
+
 }

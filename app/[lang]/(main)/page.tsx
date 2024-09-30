@@ -9,16 +9,12 @@ import { GetServerSideProps } from "next";
 export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
     const translation = await getDictionary(lang)
 
-     const res = await fetch('http://localhost:3000/api/menu',{
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',  
-        }
-    });
-    
-    const data = await res.json();
-    console.log(data.data) 
+    const res = await fetch("http://localhost:3000/api/menu", {cache: "no-cache"});
+	console.log(res);
+
+	const {data} = await res.json();
+
+	console.log(data);
 
     return (
         <Layout translation={translation}>
@@ -28,7 +24,7 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
             <div className="w-full flex-wrap bg-gray-100 flex p-[1%] gap-[2%]">
 
 
-                 {data.data.map((item: Menu) => {
+                 {data.map((item: Menu) => {
                     return <Products item={item} translation={translation} lang_={lang}  />
                 })} 
 

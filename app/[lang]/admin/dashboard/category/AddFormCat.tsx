@@ -1,6 +1,6 @@
 "use client"
 
-import Category from '@/components/Category';
+import { Category } from '@/models/category';
 import React, { ReactNode } from 'react';
 
 interface AddFormCatProps {

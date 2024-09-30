@@ -2,7 +2,7 @@
 // next.config.js
 const nextConfig = {
   images: {
-    domains: ['media.istockphoto.com', 'plus.unsplash.com', 'cdn2.iconfinder.com', 'cdn3.iconfinder.com', 'cdn0.iconfinder.com'],
+    domains: ['media.istockphoto.com', 'plus.unsplash.com', 'cdn2.iconfinder.com', 'cdn3.iconfinder.com', 'cdn0.iconfinder.com', 'images.unsplash.com'],
   },
   async headers() {
     return [

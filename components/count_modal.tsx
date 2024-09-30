@@ -4,9 +4,11 @@ import React, { ReactNode, useState } from 'react';
 
 interface Count_ModalProps {
     item: number;
+    btn_add: any
+
 }
 
-const Count_Modal: React.FC<Count_ModalProps> = ({ item}) => {
+const Count_Modal: React.FC<Count_ModalProps> = ({item, btn_add}) => {
 
     const [count, setCount] = useState(1)
 
@@ -17,10 +19,13 @@ const Count_Modal: React.FC<Count_ModalProps> = ({ item}) => {
         setCount(1)
     }
 
+    console.log(btn_add);
+    
+
     return (
         <>
             <button className="w-[40%] text-lg text-white text-center bg-background p-[10px] rounded-[15px] active:scale-[.9] transition-[.2s]">
-                Добавить
+                {btn_add}
             </button>
 
             <div className="bg-gray-200 flex justify-between w-[15%] items-center rounded-[15px]">
