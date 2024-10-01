@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import React, { ReactNode, useEffect, useState } from 'react';
 
+type Props = {
+    button: any
+}
 
-const Modal_dashboard: React.FC = () => {
+const Modal_dashboard: React.FC<Props> = ({button}) => {
 
     async function onSubmit(e: any) {
         e.preventDefault()
@@ -69,9 +72,9 @@ const Modal_dashboard: React.FC = () => {
 
     return (
         <>
-            <button className='p-[5px] pr-[10px] pl-[10px] absolute top-[1%] right-[1%]  bg-orange-500 rounded-[15px]'  onClick={() => setIsOpend(true)}>
-                Add product
-            </button>
+        <div onClick={() => setIsOpend(true)}>
+            {button}
+        </div>
 
             {isOpend && (
 
@@ -88,7 +91,8 @@ const Modal_dashboard: React.FC = () => {
                     </div>
 
 
-                    <form className="w-[60%] p-[1%] text-black relative h-fit bg-background rounded-[20px]" onSubmit={onSubmit}>
+
+                    <form className=" p-[1%] text-black relative h-fit bg-background rounded-[20px]" onSubmit={onSubmit}>
 
                         <button onClick={() => setIsOpend(false)}>
                             <Image className='absolute top-[2%] right-[1%] ' src="/images/close_white.svg" alt="closebtn" width={25} height={25} />

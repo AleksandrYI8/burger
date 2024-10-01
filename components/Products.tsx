@@ -34,8 +34,8 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
                 className="w-full mb-[5px]"
                 src={item.image || ""}
                 alt="burger"
-                width={200}
-                height={200}
+                width={500}
+                height={500}
               />
               <h2 className="text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
               <p className="text-[16px] mb-[20px]">{item.titles[lang_]}</p>
