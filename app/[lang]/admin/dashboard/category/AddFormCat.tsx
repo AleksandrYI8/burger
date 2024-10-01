@@ -16,13 +16,18 @@ interface AddFormCatProps {
 
         const fm = new FormData(e.target)
 
-        const Category:any = {}
+        const category:any = {}
 
-        fm.forEach((val: any, key: any) => (Category[key] = val))
+        fm.forEach((val: any, key: any) => (category[key] = val))
+
+        category.titles = {
+            ru: category.title_ru,
+            en: category.title,
+        }
 
             const res = await fetch(`http://localhost:3000/api/category`,{
             method : "POST",
-            body: JSON.stringify(Category),
+            body: JSON.stringify(category),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -41,14 +46,14 @@ interface AddFormCatProps {
 
     return (
         <>
-            <form className="w-[40%] mx-auto space-y-6 bg-gray-100 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
+            <form className="w-[40%] mx-auto space-y-6 text-black bg-gray-100 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
                 <div>
                     <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category URL</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
-                        name="category_img"
-                        id="category_img"
+                        name="images"
+                        id="images"
                         placeholder="Enter image URL"
                     />
                 </div>
@@ -58,9 +63,20 @@ interface AddFormCatProps {
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
-                        name="category"
-                        id="category"
+                        name="title"
+                        id="title"
                         placeholder="Enter your category"
+                    />
+                </div>
+
+                <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category ru</label>
+                    <input
+                        className="w-full px-4 py-2 border  border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        type="text"
+                        name="title_ru"
+                        id="title_ru"
+                        placeholder="Напишите свою категорию"
                     />
                 </div>
 

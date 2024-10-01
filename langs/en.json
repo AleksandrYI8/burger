@@ -26,7 +26,8 @@
     "titleFourth": "Burger Double Cheddar",
     "titleFivth": "BBQ burger",
     "titleSixth": "Spicy pepper burger",
-    "add_button": "Add"
+    "add_button": "Add",
+    "gramm": "g"
   },
   "footer": {
     "number": "Number for delivery",

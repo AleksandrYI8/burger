@@ -4,13 +4,6 @@ import Count_Modal from './count_modal';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { AnyARecord } from 'dns';
 
-type Item = {
-  id: number;
-  price: number;
-  title: string;
-  weight: string;
-};
-
 type Props = {
   item: any;
   translation: {
@@ -46,7 +39,7 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
               />
               <h2 className="text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
               <p className="text-[16px] mb-[20px]">{item.titles[lang_]}</p>
-              <p className="text-gray-400 mb-[5px]">{item.weight}</p>
+              <p className="text-gray-400 mb-[5px]">{item.weight} {translation.main.gramm}</p>
 
               <Modal Button={<button className="w-full text-center bg-gray-200 p-[10px] rounded-[15px] active:scale-[.9] transition-[.2s]">
                 {translation.main.add_button}

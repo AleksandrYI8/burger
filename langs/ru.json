@@ -26,7 +26,8 @@
     "titleFourth": "Бургер Двойной Чеддер",
     "titleFivth": "Бургер BBQ",
     "titleSixth": "Бургер с острым перцем",
-    "add_button": "Добавить"
+    "add_button": "Добавить",
+    "gramm": "г"
   },
   "footer": {
     "number": "Номер для доставки",

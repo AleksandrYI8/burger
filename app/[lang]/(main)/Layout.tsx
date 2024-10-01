@@ -1,6 +1,6 @@
 // components/Layout.tsx
 import Image from 'next/image';
-import { Category} from '@/models/category';
+import { Category } from '@/models/category';
 import CategoryReload from '@/components/CategoryReload';
 
 interface LayoutProps {
@@ -10,9 +10,10 @@ interface LayoutProps {
     acide: { cart: string };
     footer: { number: string; media: string };
   };
+  lang: any;
 }
 
-const Layout = async ({ children, translation }: LayoutProps) => {
+const Layout = async ({ children, translation, lang }: LayoutProps) => {
 
 
   const res = await fetch("http://localhost:3000/api/category", {cache: "no-cache"});
@@ -37,7 +38,7 @@ const Layout = async ({ children, translation }: LayoutProps) => {
         </div>
         <ul className=" flex gap-[3%] scrollbar-hidden pr-[5  %] pl-[5%] overflow-x-auto ">
         {data.map((item: Category) => {
-                    return <CategoryReload item={item}/>
+                    return <CategoryReload item={item} lang={lang}/>
                 })}  
         </ul>
 

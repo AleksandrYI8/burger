@@ -17,7 +17,7 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
 	console.log(data);
 
     return (
-        <Layout translation={translation}>
+        <Layout translation={translation} lang={lang}>
             <h1 className="text-[40px] text-black font-600 mt-[1vh]">{translation.main.mainText}</h1>
 
 

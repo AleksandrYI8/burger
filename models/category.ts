@@ -1,5 +1,10 @@
+type translation = {
+    ru: string;
+    en: string
+}
+
 export type Category = {
     _id: string;
-    title: string;
+    titles: translation;
     images: string[];
 }
