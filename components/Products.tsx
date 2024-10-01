@@ -25,9 +25,9 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
 
   return (
     <>
-      {         
+      
             <div
-              key={item.id}
+              key={item._id}
               className="p-[1%] rounded-[15px] bg-white mb-[2%] w-[30%] text-black"
             >
               <Image
@@ -71,7 +71,7 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
           
 
         
-      }
+      
     </>
   );
 };

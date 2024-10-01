@@ -10,7 +10,7 @@ const Dashboard: React.FC<DashboardProps> = ({children}: {children: ReactNode}) 
         <>
         <div className="flex">
 
-            <aside className='w-[20%] p-[1%] bg-blue-950 h-[100vh]'>
+            <aside className='w-[20%] fixed top-0 bottom-0 p-[1%] bg-orange-500 h-[100vh]'>
                 <h1 className='text-3xl mb-[5%] font-medium'>Dashboard</h1>
 
                 <div className="flex flex-col text-xl mb-[70vh] gap-[1%]">
@@ -45,7 +45,9 @@ const Dashboard: React.FC<DashboardProps> = ({children}: {children: ReactNode}) 
 
 
             </aside>
+            <main className='w-[80%] ml-[20%] bg-background'>
             {children}
+            </main>
         </div>
         </>
     );

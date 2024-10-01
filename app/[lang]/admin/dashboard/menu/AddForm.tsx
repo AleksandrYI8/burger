@@ -1,4 +1,4 @@
-"use client"
+/* "use client"
 
 import React, { ReactNode } from 'react';
 
@@ -57,9 +57,9 @@ const AddForm: React.FC<AddFormProps> = ({ lang }) => {
     return (
         <>
             <form className="w-full text-black space-y-6  bg-blue-900 p-[1%] rounded-md shadow-md" onSubmit={onSubmit}>
-                <div className="flex w-full gap-[5%]">
+                <div className="flex  w-full gap-[5%]">
 
-                    <div className="w-[30%]">
+                    <div className="w-[30%] flex flex-col gap-[2%]">
 
                         <div className='w-full'>
                             <label className="block mb-2 text-sm font-medium text-white" htmlFor="image">Image URL</label>
@@ -189,4 +189,4 @@ const AddForm: React.FC<AddFormProps> = ({ lang }) => {
     );
 };
 
-export default AddForm;
+export default AddForm; */

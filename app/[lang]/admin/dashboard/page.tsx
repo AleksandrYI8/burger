@@ -7,7 +7,9 @@ interface pageProps {
 const page: React.FC<pageProps> = () => {
     return (
         <>
-            <h1>admin</h1>
+            <div className="bg-orange-500 w-full flex justify-center items-center" >
+                <h1 className='text-[50px]'>Welcome to admin panel of FreMeal</h1>
+            </div>
         </>
     );
 };
