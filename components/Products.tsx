@@ -56,7 +56,7 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
                       {item.composition[lang_]}
                     </p>
 
-                    <span className=' text-gray-500'>{item.weight}</span>
+                    <span className=' text-gray-500'>{item.weight} {translation.main.gramm}</span>
                   </div>
                 </div>
                 <div className="mb-[2%] flex gap-[3%]">
