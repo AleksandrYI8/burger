@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
         const client = await clientPromise
 
         const db = client.db('mydatabase')
-        const body = await req.json()
+        const  body = await req.json()
         const result = await db.collection("menu").insertOne(body)
 
         return NextResponse.json({ success: true, data: result, message: "new burger was created" })
