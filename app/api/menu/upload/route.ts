@@ -1,10 +1,9 @@
-// app/api/users/upload/route.ts
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 
 // Указываем директорию для сохранения файлов
-const uploadDir = path.join(process.cwd(), "public/uploads");
+const uploadDir = path.join(process.cwd(), "public/images");
 
 // Убедись, что директория для загрузки существует
 async function ensureUploadDirExists() {
@@ -30,14 +29,16 @@ export async function POST(req: Request) {
 			);
 		}
 
-		let filePath: any = path.join(uploadDir, file.name.split(" ").join(""));
+		// Формируем путь для сохранения файла
+		const fileName = file.name.split(" ").join("");
+		const filePath = path.join(uploadDir, fileName);
 
 		// Сохраняем файл на диск
 		const buffer = await file.arrayBuffer();
 		await fs.writeFile(filePath, Buffer.from(buffer));
 
-		const pathName = "\\" + filePath.split("\\").at(-1);
-
+		// Возвращаем относительный путь для доступа к файлу через браузер
+		const pathName = `/images/${fileName}`;
 
 		return NextResponse.json({
 			success: true,

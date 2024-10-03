@@ -32,7 +32,7 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
             >
               <Image
                 className="w-full rounded-md mb-[5px]"
-                src={item.image || ""}
+                src={item.images || ""}
                 alt="burger"
                 width={500}
                 height={500}
@@ -48,7 +48,7 @@ const Products: React.FC<Props> = ({ item, translation, lang_}) => {
                 <h1 className='text-[45px] font-[500 mb-[1%]'>{item.titles[lang_]}</h1>
                 <div className="flex w-full gap-[1%] mb-[5%]">
                   <div className=" w-[45%]">
-                    <Image className="rounded-md" src={item.image || ""} alt="burger_modal" width={1000} height={1000} />
+                    <Image className="rounded-md" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
                   </div>
                   <div className="w-[53%] p-[1%]">
                     <p className='text-base mb-[15px]'>{item.description[lang_]}</p>

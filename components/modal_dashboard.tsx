@@ -45,56 +45,58 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
 				setMessage(errorData.message || "Image upload failed");
 				return;
 			}
-
+            
 			const data = await response.json();
 			setMessage(data.message);
-
+            
+            
+            
             const fm = new FormData(e.target)
-
+            
             const menu: any = {}
-    
+            
             fm.forEach((val: any, key: any) => (menu[key] = val))
-    
-            menu.images = `public/uploads${data}`
-    
+            
+            menu.images = data.data
+            
             menu.titles = {
                 ru: menu.title_ru,
                 en: menu.title,
             }
-    
+            
             menu.description = {
                 ru: menu.description_ru,
                 en: menu.description,
             }
-    
+            
             menu.composition = {
                 ru: menu.composition_ru,
                 en: menu.composition,
             }
-    
-    
+            
+            
             const res = await fetch(`http://localhost:3000/api/menu`, {
                 method: "POST",
                 body: JSON.stringify(menu),
                 headers: {
                     "Content-Type": "application/json"
                 }
-    
+                
             })
-    
+            
             console.log(res);
-    
+            
             if (res.status == 200 || res.status == 201) {
                 alert("success")
             }
-    
-
             
-
+            
+            
+            
 			
-
+            
 		} catch (error) {
-			setMessage("Something went wrong: " + error);
+            setMessage("Something went wrong: " + error);
 		}   
     }
 
