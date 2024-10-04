@@ -1,46 +1,86 @@
 "use client"
 
 import { Category } from '@/models/category';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 interface AddFormCatProps {
     lang: string;
     translation: Record<string, string>; // Пример структуры перевода
-  }
-  
-  const AddFormCAt: React.FC<AddFormCatProps> = () => {
+}
+
+const AddFormCAt: React.FC<AddFormCatProps> = () => {
+
+    const [file, setFile] = useState<File | null>(null);
+    const [image, setImage] = useState<string | null>(null);
+    const [message, setMessage] = useState("");
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            setFile(event.target.files[0]);
+            setImage(URL.createObjectURL(event.target.files[0]));
+        }
+    };
 
 
     async function onSubmit(e: any) {
         e.preventDefault()
 
-        const fm = new FormData(e.target)
-
-        const category:any = {}
-
-        fm.forEach((val: any, key: any) => (category[key] = val))
-
-        category.titles = {
-            ru: category.title_ru,
-            en: category.title,
+        if (!file) {
+            setMessage("Please select a file.");
+            return;
         }
 
-            const res = await fetch(`http://localhost:3000/api/category`,{
-            method : "POST",
-            body: JSON.stringify(category),
-            headers: {
-                "Content-Type": "application/json"
+        const formData = new FormData();
+        formData.append("image", file);
+
+        try {
+            const response = await fetch("/api/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            // Проверяем на успешность и корректно обрабатываем ответ
+            if (!response.ok) {
+                const errorData = await response.json();
+                setMessage(errorData.message || "Image upload failed");
+                return;
             }
+
+            const data = await response.json();
+            setMessage(data.message);
+
+
+            const fm = new FormData(e.target)
+
+            const category: any = {}
+
+            fm.forEach((val: any, key: any) => (category[key] = val))
+
+            category.images = data.data
+
+            category.titles = {
+                ru: category.title_ru,
+                en: category.title,
+            }
+
+            const res = await fetch(`http://localhost:3000/api/category`, {
+                method: "POST",
+                body: JSON.stringify(category),
+                headers: {
+                    "Content-Type": "application/json"
+                }
 
             })
 
             console.log(res);
-            
 
-        if(res.status == 200 || res.status == 201 ){
-            alert("success")
+
+            if (res.status == 200 || res.status == 201) {
+                alert("success")
+            }
+        } catch (error) {
+            setMessage("Something went wrong: " + error);
         }
-                
     }
 
 
@@ -51,7 +91,9 @@ interface AddFormCatProps {
                     <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category URL</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        type="text"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
                         name="images"
                         id="images"
                         placeholder="Enter image URL"

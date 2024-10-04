@@ -34,7 +34,7 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
 		formData.append("image", file);
 
 		try {
-			const response = await fetch("/api/menu/upload", {  
+			const response = await fetch("/api/upload", {  
 				method: "POST",
 				body: formData,
 			});
