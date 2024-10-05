@@ -86,9 +86,9 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
 
     return (
         <>
-            <form className="w-[40%] mx-auto space-y-6 text-black bg-gray-100 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
+            <form className="w-[30%]  fixed right-[1%] top-[1%] mx-auto space-y-6 text-white bg-orange-500 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
                 <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category URL</label>
+                    <label className="block mb-2 text-[18px] font-medium" htmlFor="image">Category URL</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="file"
@@ -101,7 +101,7 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
                 </div>
 
                 <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category</label>
+                    <label className="block mb-2 text-[18px] font-medium" htmlFor="image">Category</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
@@ -112,7 +112,7 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
                 </div>
 
                 <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="image">Category ru</label>
+                    <label className="block mb-2  text-[18px] font-medium" htmlFor="image">Category ru</label>
                     <input
                         className="w-full px-4 py-2 border  border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
@@ -123,7 +123,7 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
                 </div>
 
                 <button
-                    className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full text-[18px] px-4 py-2 text-white bg-background rounded-md hover:bg-orange-600 active:scale-[.9] transition-[.2s] "
                     type="submit"
                 >
                     Add Product

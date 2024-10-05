@@ -33,7 +33,7 @@ const AdminProductModal: React.FC<ModalProps> = ({ Button }) => {
 
             <div
                 onMouseEnter={handleMouseEnter}
-                onClick={() => setIsOpen(true)}>
+                onClick={() => isOpen ? setIsOpen(false) : setIsOpen(true)}>
                 {Button}
             </div>
         </div>
