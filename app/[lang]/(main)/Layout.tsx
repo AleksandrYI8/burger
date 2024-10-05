@@ -1,7 +1,8 @@
-// components/Layout.tsx
 import Image from 'next/image';
 import { Category } from '@/models/category';
 import CategoryReload from '@/components/CategoryReload';
+import React, { useState } from 'react';
+import { AppWrapper } from '@/context';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,17 +14,22 @@ interface LayoutProps {
   lang: any;
 }
 
+
 const Layout = async ({ children, translation, lang }: LayoutProps) => {
+  
+/*   const [activeCategory, setActiveCategory] = useState(null)
+ */
+  const res = await fetch("http://localhost:3000/api/category", { cache: "no-cache" });
+  const { data } = await res.json();
+
+ 
 
 
-  const res = await fetch("http://localhost:3000/api/category", {cache: "no-cache"});
-	console.log(res);
-
-	const {data} = await res.json();
-
-	console.log(data);
 
   return (
+    <AppWrapper>
+
+
     <div className="bg-gray-100">
       <header className=' bg-gray-100 w-full mb-[3vh]'>
         <div className="bg-background rounded-b-[60%] mb-[30px]">
@@ -37,9 +43,9 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
           </div>
         </div>
         <ul className=" flex gap-[3%] scrollbar-hidden pr-[5  %] pl-[5%] overflow-x-auto ">
-        {data.map((item: Category) => {
-                    return <CategoryReload item={item} lang={lang}/>
-                })}  
+          {data.map((item: Category) => {
+            return <CategoryReload item={item} lang={lang} />
+          })}
         </ul>
 
       </header>
@@ -53,7 +59,9 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
             <p>тут покачто пусто :(</p>
           </div>
         </aside>
-        <main className='w-[75%] pl-[2%] bg-gray-100' >{children}</main>
+        <main className='w-[75%] pl-[2%] bg-gray-100' >
+          {children}
+        </main>
       </div>
       <footer className=' text-black flex justify-between bg-white pl-[5%] pt-[2%] pr-[10%] pb-[2%] w-full' >
         <Image src="/images/footerLogo.svg" alt="logo" width={300} height={200} />
@@ -76,7 +84,9 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
         </div>
       </footer>
     </div>
+  </AppWrapper>
   );
+
 };
 
 export default Layout;
