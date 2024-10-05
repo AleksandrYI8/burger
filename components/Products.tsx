@@ -29,14 +29,18 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
 
   console.log(languageData);
   
+   
 
   return (
     <>
+
+    
 
       <h1 className="text-[40px] text-black font-600 mt-[1vh]">{languageData ? languageData[lang_] : ""}</h1>
 
 
       <div className="w-full flex-wrap bg-gray-100 flex p-[1%] gap-[2%]">
+
 
 
       {dataC.map((item: any) => {
@@ -90,7 +94,8 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
 
 
     </>
-  );
+  ) 
+  
 };
 
 export default Products;
