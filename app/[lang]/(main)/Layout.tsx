@@ -3,6 +3,7 @@ import { Category } from '@/models/category';
 import CategoryReload from '@/components/CategoryReload';
 import React, { useState } from 'react';
 import { AppWrapper } from '@/context';
+import { AppTranslationWrapper } from '@/context/translation_context';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -28,6 +29,9 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
 
   return (
     <AppWrapper>
+      <AppTranslationWrapper>
+
+      
 
 
     <div className="bg-gray-100">
@@ -84,6 +88,7 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
         </div>
       </footer>
     </div>
+    </AppTranslationWrapper>
   </AppWrapper>
   );
 

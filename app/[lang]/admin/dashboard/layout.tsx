@@ -50,7 +50,7 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
 
 
                 </aside>
-                <main className='w-[80%] ml-[20%] bg-background'>
+                <main className='w-[80%] h-[100vh] ml-[20%] bg-background'>
                     {children}
                 </main>
             </div>

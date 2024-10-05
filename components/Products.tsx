@@ -6,6 +6,7 @@ import Count_Modal from './count_modal';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { AnyARecord } from 'dns';
 import { useAppContext } from "@/context";
+import { useAppTrnslationContext } from "@/context/translation_context";
 
 type Props = {
   translation: {
@@ -15,21 +16,24 @@ type Props = {
     main: any,
     footer: { number: string; media: string };
   };
-  lang_: any
+  lang_: string
 };
 
 const Products: React.FC<Props> = ({ translation, lang_ }) => {
   console.log(lang_);
 
   const { dataC } = useAppContext()
+  const {languageData}:any = useAppTrnslationContext()
 
 
 
+  console.log(languageData);
+  
 
   return (
     <>
 
-      <h1 className="text-[40px] text-black font-600 mt-[1vh]">{translation.main.mainText}</h1>
+      <h1 className="text-[40px] text-black font-600 mt-[1vh]">{languageData ? languageData[lang_] : ""}</h1>
 
 
       <div className="w-full flex-wrap bg-gray-100 flex p-[1%] gap-[2%]">

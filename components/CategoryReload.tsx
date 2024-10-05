@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppContext } from "@/context";
+import { useAppTrnslationContext } from "@/context/translation_context";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -10,8 +11,8 @@ type Props = {
 };
 
 const CategoryReload: React.FC<Props> = ({ item, lang }) => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null); 
-  const { dataC, setDataC } = useAppContext(); 
+  const {setDataC} = useAppContext(); 
+  const {setLanguageData} = useAppTrnslationContext(); 
   const [data_prod, setData_prod] = useState<any[]>([]); 
 
   useEffect(() => {
@@ -30,19 +31,18 @@ const CategoryReload: React.FC<Props> = ({ item, lang }) => {
     fetchData();
   }, []);
 
- 
-  const filteredData = activeCategory
-    ? data_prod.filter((product: { category: string }) => product.category === activeCategory)
-    : data_prod;
-
   const handleClick = () => {
-    setActiveCategory(item.titles.en);
 
     const newFilteredData = data_prod.filter(
       (product: { category: string }) => product.category === item.titles.en
     );
 
     setDataC(newFilteredData);
+
+    setLanguageData({
+      ru: item.titles.ru,
+      en: item.titles.en
+    })
   };
 
 
