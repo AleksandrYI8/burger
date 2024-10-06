@@ -20,10 +20,10 @@ export default async function Page({ params: { lang } }: PageProps) {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-background">
 
 
-        <div className=" flex w-[65%] p-[1%] gap-[1%] flex-wrap">
+        <div className=" flex w-[65%] p-[1%] bg-background gap-[1%] flex-wrap">
           {data.map((item: any) => {
             return <div className="relative mb-[1%] flex  items-center overflow-hidden bg-gray-200 gap-[10px] text-black w-[45%] h-[15vh] p-[1%] pr-[5%]  rounded-md">
               <Image className='rounded-md' src={item.images || ""} alt="category" width={150} height={150} />

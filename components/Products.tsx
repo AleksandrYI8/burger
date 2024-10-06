@@ -63,6 +63,7 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
           <Modal Button={<button className="w-full text-center bg-gray-200 p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
             {translation.main.add_button}
           </button>}>
+          
 
             <h1 className='text-[45px] font-[500 mb-[1%]'>{item.titles[lang_]}</h1>
             <div className="flex w-full gap-[1%] mb-[5%]">

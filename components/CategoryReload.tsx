@@ -49,9 +49,8 @@ const CategoryReload: React.FC<Props> = ({ item, lang }) => {
   return (
     <li
       onClick={handleClick}
-      className="flex whitespace-nowrap w-[110px] gap-[5px] pt-[5px] hover:bg-orange-500 pb-[5px] p-[8px] rounded-[15px] bg-white text-black justify-center items-center"
-    >
-      <Image src={item.images || ""} alt="burger" width={25} height={25} />
+      className="flex whitespace-nowrap  overflow-hidden min-w-fit gap-[5px] justify-center pt-[5px] hover:bg-orange-500 pb-[5px] p-[8px] rounded-[15px] bg-white text-black items-center"    >
+      <Image className="rounded-md" src={item.images || ""} alt="burger" width={25} height={25} />
       {item.titles[lang]}
     </li>
   );
