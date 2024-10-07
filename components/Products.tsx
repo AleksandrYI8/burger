@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Modal from './hoc/modal';
 import Count_Modal from './count_modal';
-import { getDictionary } from '@/app/[lang]/dictionaries';
-import { AnyARecord } from 'dns';
 import { useAppContext } from "@/context";
 import { useAppTrnslationContext } from "@/context/translation_context";
 

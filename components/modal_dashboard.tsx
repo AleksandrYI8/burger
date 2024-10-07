@@ -88,6 +88,7 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
             
             if (res.status == 200 || res.status == 201) {
                 alert("success")
+                location.reload()
             }
             
             

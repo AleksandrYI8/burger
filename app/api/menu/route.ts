@@ -33,3 +33,4 @@ export const POST = async (req: NextRequest) => {
         return NextResponse.json({ success: false, message: e.message })
     }
 }
+

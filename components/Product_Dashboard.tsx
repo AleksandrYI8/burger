@@ -6,7 +6,9 @@ type Props = {
 };
 
 const Products_Dashboard: React.FC<Props> = ({ item }) => {
+    
     return (
+
         <>
             <div
                 key={item._id}
@@ -33,7 +35,7 @@ const Products_Dashboard: React.FC<Props> = ({ item }) => {
                 </div>
 
                 <div className="absolute top-[1%] right-[1%]">
-                    <AdminProductModal Button={<button>•••</button>} />
+                    <AdminProductModal type={"menu"} id={item._id} Button={<button>•••</button>} />
 
                 </div>
             </div>
