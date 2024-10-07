@@ -1,7 +1,6 @@
 "use client";
 
 import { useAppContext } from "@/context";
-import { useAppTrnslationContext } from "@/context/translation_context";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -11,8 +10,7 @@ type Props = {
 };
 
 const CategoryReload: React.FC<Props> = ({ item, lang }) => {
-  const {setDataC} = useAppContext(); 
-  const {setLanguageData} = useAppTrnslationContext(); 
+  const {setDataC, setLanguageData} = useAppContext(); 
   const [data_prod, setData_prod] = useState<any[]>([]); 
 
   useEffect(() => {

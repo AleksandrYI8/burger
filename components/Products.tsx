@@ -4,7 +4,6 @@ import Image from "next/image";
 import Modal from './hoc/modal';
 import Count_Modal from './count_modal';
 import { useAppContext } from "@/context";
-import { useAppTrnslationContext } from "@/context/translation_context";
 
 type Props = {
   translation: {
@@ -20,14 +19,7 @@ type Props = {
 const Products: React.FC<Props> = ({ translation, lang_ }) => {
   console.log(lang_);
 
-  const { dataC } = useAppContext()
-  const {languageData}:any = useAppTrnslationContext()
-
-
-
-  console.log(languageData);
-  
-   
+  const { dataC, languageData } = useAppContext()
 
   return (
     <>

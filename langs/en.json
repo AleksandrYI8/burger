@@ -4,14 +4,7 @@
     "headerTitleSec": "juicy burgers",
     "deliv": "Free delivery from ",
     "category": {
-      "titleFirst": "Burgers",
-      "titleSecond": "Pizza",
-      "titleTherd": "Hot dogs",
-      "titleFourth": "Sandwiches",
-      "titleFivth": "Tortillas",
-      "titleSixth": "Shawarma",
-      "titleSeventh": "Snacks",
-      "titleEighth": "Desserts"
+      "all" : "Assortment"
     }
   },
   "acide": {
@@ -19,13 +12,6 @@
     "sleng": "It's empty for now:"
   },
   "main": {
-    "mainText": "Burgers",
-    "titleFirst": "Beef bomb",
-    "titleSecond": "Veggie burger",
-    "titleTherd": "Chiken burger",
-    "titleFourth": "Burger Double Cheddar",
-    "titleFivth": "BBQ burger",
-    "titleSixth": "Spicy pepper burger",
     "add_button": "Add",
     "gramm": "g"
   },

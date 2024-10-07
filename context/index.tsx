@@ -6,6 +6,11 @@ const AppContext = createContext<any>(null);
 
 export function AppWrapper({ children }: { children: ReactNode }) {
     const [dataC, setDataC] = useState<any[]>([]);
+    const [languageData, setLanguageData] = useState<any>({
+        ru: "Ассортимент",
+        en: "Assortment"
+    });
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +29,7 @@ export function AppWrapper({ children }: { children: ReactNode }) {
     }, [setDataC]);
 
     return (
-        <AppContext.Provider value={{ dataC, setDataC }}>
+        <AppContext.Provider value={{ dataC, setDataC, languageData, setLanguageData }}>
             {children}
         </AppContext.Provider>
     );
