@@ -12,6 +12,7 @@
     "sleng": "It's empty for now:"
   },
   "main": {
+    "noProduct" : "Currently, there are no available products in this category",
     "add_button": "Add",
     "gramm": "g"
   },
