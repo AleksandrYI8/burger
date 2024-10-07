@@ -1,4 +1,3 @@
-import Category from "@/components/Category";
 import clientPromise from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 

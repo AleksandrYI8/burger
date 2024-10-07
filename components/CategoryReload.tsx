@@ -50,7 +50,7 @@ const CategoryReload: React.FC<Props> = ({ item, lang }) => {
     <li
       onClick={handleClick}
       className="flex whitespace-nowrap  overflow-hidden min-w-fit gap-[5px] justify-center pt-[5px] hover:bg-orange-500 pb-[5px] p-[8px] rounded-[15px] bg-white text-black items-center"    >
-      <Image className="rounded-md" src={item.images || ""} alt="burger" width={25} height={25} />
+      <Image className="rounded-md object-cover" src={item.images || ""} alt="burger" width={25} height={25} />
       {item.titles[lang]}
     </li>
   );

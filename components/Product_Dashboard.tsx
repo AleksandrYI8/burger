@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AdminProductModal from "./Dashboard_product_modal";
+import DashboardProductModal from "./Dashboard_product_modal";
 
 type Props = {
     item: any;
@@ -15,7 +15,7 @@ const Products_Dashboard: React.FC<Props> = ({ item }) => {
                 className="p-[1%] flex gap-[2%] relative rounded-[15px] bg-white mb-[2%] text-black"
             >
                 <Image
-                    className="w-[20%]  rounded-[10px] mb-[5px]"
+                    className="w-[20%] object-cover rounded-[10px] mb-[5px]"
                     src={item.images || ""}
                     alt="burger"
                     width={500}
@@ -35,7 +35,7 @@ const Products_Dashboard: React.FC<Props> = ({ item }) => {
                 </div>
 
                 <div className="absolute top-[1%] right-[1%]">
-                    <AdminProductModal type={"menu"} id={item._id} Button={<button>•••</button>} />
+                    <DashboardProductModal type={"menu"} id={item._id} Button={<button>•••</button>} />
 
                 </div>
             </div>

@@ -8,7 +8,7 @@ interface ModalProps {
     type: string;
 }
 
-const AdminProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
+const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
 
 
     const deleteItem = async () => {
@@ -70,4 +70,4 @@ const AdminProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
     );
 };
 
-export default AdminProductModal;
+export default DashboardProductModal;
