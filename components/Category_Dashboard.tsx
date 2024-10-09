@@ -15,7 +15,7 @@ const Category_Dashboard: React.FC<Props> = ({ item }) => {
                 <p className='text-[18px]'><span className='font-bold'>ru:</span> {item.titles.ru}</p>
                 <p className='text-[18px]'><span className='font-bold'>en:</span> {item.titles.en}</p>
             </div>
-            <div className="absolute top-[1%] right-[1%]">
+            <div>
                 <DashboardProductModal type={"category"} id={item._id} Button={<button>•••</button>} />
             </div>
         </div>

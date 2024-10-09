@@ -7,98 +7,97 @@ type Props = {
     button: any
 }
 
-const Modal_dashboard: React.FC<Props> = ({button}) => {
+const Modal_dashboard: React.FC<Props> = ({ button }) => {
 
     const [file, setFile] = useState<File | null>(null);
-	const [image, setImage] = useState<string | null>(null);
-	const [message, setMessage] = useState("");
+    const [image, setImage] = useState<string | null>(null);
+    const [message, setMessage] = useState("");
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (event.target.files) {
-			setFile(event.target.files[0]);
-			setImage(URL.createObjectURL(event.target.files[0]));
-		}
-	};
+        if (event.target.files) {
+            setFile(event.target.files[0]);
+            setImage(URL.createObjectURL(event.target.files[0]));
+        }
+    };
 
 
-    async function onSubmit(e: any) {        
+    async function onSubmit(e: any) {
         e.preventDefault()
 
 
         if (!file) {
-			setMessage("Please select a file.");
-			return;
-		}
+            setMessage("Please select a file.");
+            return;
+        }
 
-		const formData = new FormData();
-		formData.append("image", file);
+        const formData = new FormData();
+        formData.append("image", file);
 
-		try {
-			const response = await fetch("/api/upload", {  
-				method: "POST",
-				body: formData,
-			});
+        try {
+            const response = await fetch("/api/upload", {
+                method: "POST",
+                body: formData,
+            });
 
-			// Проверяем на успешность и корректно обрабатываем ответ
-			if (!response.ok) {
-				const errorData = await response.json();
-				setMessage(errorData.message || "Image upload failed");
-				return;
-			}
-            
-			const data = await response.json();
-			setMessage(data.message);
-            
-            
-            
+            // Проверяем на успешность и корректно обрабатываем ответ
+            if (!response.ok) {
+                const errorData = await response.json();
+                setMessage(errorData.message || "Image upload failed");
+                return;
+            }
+
+            const data = await response.json();
+            setMessage(data.message);
+
+
+
             const fm = new FormData(e.target)
-            
+
             const menu: any = {}
-            
+
             fm.forEach((val: any, key: any) => (menu[key] = val))
-            
+
             menu.images = data.data
-            
+
             menu.titles = {
                 ru: menu.title_ru,
                 en: menu.title,
             }
-            
+
             menu.description = {
                 ru: menu.description_ru,
                 en: menu.description,
             }
-            
+
             menu.composition = {
                 ru: menu.composition_ru,
                 en: menu.composition,
             }
-            
-            
+
+
             const res = await fetch(`http://localhost:3000/api/menu`, {
                 method: "POST",
                 body: JSON.stringify(menu),
                 headers: {
                     "Content-Type": "application/json"
                 }
-                
+
             })
-            
+
             console.log(res);
-            
+
             if (res.status == 200 || res.status == 201) {
                 alert("success")
-                location.reload()
             }
-            
-            
-            
-            
-			
-            
-		} catch (error) {
+
+
+
+
+
+
+        } catch (error) {
             setMessage("Something went wrong: " + error);
-		}   
+        }
     }
 
 
@@ -121,33 +120,25 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
 
     return (
         <>
-        <div onClick={() => setIsOpend(true)}>
-            {button}
-        </div>
+            <div onClick={() => setIsOpend(true)}>
+                {button}
+            </div>
 
             {isOpend && (
 
-                <div className="w-full ml-[10%] mt-[5%]">
-
-                    <div
-                        className="fixed  top-0 left-0 right-0 bottom-0 flex justify-center items-center"
-                        style={{
-                            background: "rgba(0,0,0,0.5)",
-                            backdropFilter: "blur(10px)"
-                        }}
-                    >
-
-                    </div>
-
-
-
-                    <form className=" p-[1%] text-black relative h-fit bg-background rounded-[20px]" onSubmit={onSubmit}>
+                <div
+                    className="fixed  top-0 left-0 right-0 bottom-0 flex justify-center items-center"
+                    style={{
+                        background: "rgba(0,0,0,0.5)",
+                        backdropFilter: "blur(10px)"
+                    }}>
+                    <form className=" w-[50%] p-[1%] text-black relative  h-fit bg-background rounded-[20px]" onSubmit={onSubmit}>
 
                         <button onClick={() => setIsOpend(false)}>
                             <Image className='absolute top-[2%] right-[1%] ' src="/images/close_white.svg" alt="closebtn" width={25} height={25} />
                         </button>
 
-                        <div className="flex  w-full gap-[5%]">
+                        <div className="flex w-full gap-[5%]">
 
                             <div className="w-full flex flex-col gap-[2%]">
 
@@ -158,7 +149,7 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
                                         type='file'
                                         accept="image/*"
                                         onChange={handleFileChange}
-                                        name="image"
+                                         name="image"
                                         id="image"
                                         placeholder="Enter image URL"
                                     />
@@ -272,7 +263,6 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
                             Add Product
                         </button>
                     </form>
-
                 </div>
 
             )}
@@ -284,8 +274,8 @@ const Modal_dashboard: React.FC<Props> = ({button}) => {
 };
 
 /*  <div
-                   
-                    <div className="">
+
+<div className="">
                         <button className='absolute right-[2%] top-[3%]' onClick={() => setIsOpend(false)}>
                             <Image src="/images/close_btn.svg" alt="close_btn" width={30} height={30} />
                         </button>

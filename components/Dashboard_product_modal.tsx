@@ -1,6 +1,7 @@
 "use client"
 
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
+import Modal_product_patch from './Modal_product_patch';
 
 interface ModalProps {
     Button: ReactNode;
@@ -10,6 +11,31 @@ interface ModalProps {
 
 const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
 
+    const [item, setItem] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        const fetchItem = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/${type}/${id}`, {
+                    method: "GET",
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setItem(data);
+                    console.log("Item fetched:", data);
+                } else {
+                    throw new Error("Failed to fetch item");
+                }
+            } catch (error) {
+                console.error("Ошибка:", error);
+                alert("Произошла ошибка при получении данных");
+            }
+        };
+
+        fetchItem();
+    }, [id, type]);  // Добавлен массив зависимостей для предотвращения лишних вызовов
 
     const deleteItem = async () => {
         try {
@@ -21,52 +47,50 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
             });
 
             if (response.ok) {
-                alert("sucsess");
-                location.reload()
-                console.log(response);
-                
+                alert("Sucsess");
+                location.reload();  // Перезагрузка страницы (можно улучшить)
+            } else {
+                throw new Error("Failed to delete item");
             }
         } catch (error) {
             console.error("Ошибка:", error);
-            alert("Произошла ошибка");
+            alert("Произошла ошибка при удалении");
         }
-
-
     };
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleMouseLeave = () => {
-        setIsOpen(false); // Закрываем модальное окно, когда курсор покидает его
-    };
-
-    const handleMouseEnter = () => {
-        setIsOpen(true); // Закрываем модальное окно, когда курсор покидает его
+    const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (e.target === e.currentTarget) {
+            setIsOpen(false);  // Закрытие модалки при клике на фон
+        }
     };
 
     return (
-        <><div className="flex">
-
+        <div className="flex">
             {isOpen && (
-                <div
-                    className="flex gap-[2%] rounded p-[5px] pr-[10px] pl-[10px] mt-[20px] flex-col justify-start items-start  bg-gray-100"
-                    onMouseLeave={handleMouseLeave}
-                >
-                    <button onClick={deleteItem} className='rounded hover:bg-gray-200 p-[5px]'>Delete</button>
-                    <button className='rounded hover:bg-gray-200 p-[5px]'>Change</button>
+                <div>
+                    {/* Фон, покрывающий весь экран */}
+                    <div
+                        onClick={handleOutsideClick}
+                        className="fixed inset-0 z-40">
+                    </div>
+
+                    {/* Модалка */}
+                    <div
+                        className="flex gap-1 relative rounded p-2 mt-5 flex-col justify-start items-start bg-gray-100 z-50"
+                    >
+                        <button onClick={deleteItem} className="rounded hover:bg-gray-200 p-1">Delete</button>
+                        <Modal_product_patch Button={<button className="rounded hover:bg-gray-200 p-1">Change</button>} />
+
+                    </div>
                 </div>
             )}
 
             <div
-                onMouseEnter={handleMouseEnter}
-                onClick={() => isOpen ? setIsOpen(false) : setIsOpen(true)}>
+                onClick={() => setIsOpen(!isOpen)}  // Открытие/закрытие модалки
+            >
                 {Button}
             </div>
         </div>
-
-
-
-        </>
     );
 };
 

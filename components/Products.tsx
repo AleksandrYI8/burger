@@ -44,6 +44,9 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
               <p className="text-[18px] mb-[15px]">{item.titles[lang_]}</p>
               <p className="text-gray-400 mb-[5px]">{item.weight} {translation.main.gramm}</p>
 
+
+
+
               <Modal Button={<button className="w-full text-center bg-gray-200 p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
                 {translation.main.add_button}
               </button>}>
@@ -64,6 +67,10 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
                   <Count_Modal item={item.price} btn_add={translation.modal.btn_add} />
                 </div>
               </Modal>
+
+
+
+
             </div>
           ))
         ) : (

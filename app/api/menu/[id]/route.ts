@@ -2,7 +2,7 @@ import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (res: NextResponse, req: NextRequest) => {
+ export const GET = async (res: NextResponse, req: NextRequest) => {
 
     try {
         const client = await clientPromise
