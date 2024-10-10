@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useEffect, useState } from 'react';
 import Modal_product_patch from './Modal_product_patch';
+import { Menu } from '@/models/menu';
 
 interface ModalProps {
     Button: ReactNode;
@@ -11,31 +12,7 @@ interface ModalProps {
 
 const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
 
-    const [item, setItem] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        const fetchItem = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/api/${type}/${id}`, {
-                    method: "GET",
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    setItem(data);
-                    console.log("Item fetched:", data);
-                } else {
-                    throw new Error("Failed to fetch item");
-                }
-            } catch (error) {
-                console.error("Ошибка:", error);
-                alert("Произошла ошибка при получении данных");
-            }
-        };
-
-        fetchItem();
-    }, [id, type]);  // Добавлен массив зависимостей для предотвращения лишних вызовов
 
     const deleteItem = async () => {
         try {
@@ -64,6 +41,9 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
         }
     };
 
+    console.log(id);
+    
+
     return (
         <div className="flex">
             {isOpen && (
@@ -79,7 +59,9 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
                         className="flex gap-1 relative rounded p-2 mt-5 flex-col justify-start items-start bg-gray-100 z-50"
                     >
                         <button onClick={deleteItem} className="rounded hover:bg-gray-200 p-1">Delete</button>
-                        <Modal_product_patch Button={<button className="rounded hover:bg-gray-200 p-1">Change</button>} />
+
+                        <Modal_product_patch id={id} Button={<button className="rounded hover:bg-gray-200 p-1">Change</button>} />
+
 
                     </div>
                 </div>
