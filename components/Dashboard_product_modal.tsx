@@ -42,7 +42,7 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
     };
 
     console.log(id);
-    
+
 
     return (
         <div className="flex">
@@ -60,7 +60,7 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
                     >
                         <button onClick={deleteItem} className="rounded hover:bg-gray-200 p-1">Delete</button>
 
-                        <Modal_product_patch id={id} Button={<button className="rounded hover:bg-gray-200 p-1">Change</button>} />
+                        <Modal_product_patch type={type} id={id} Button={<button className="rounded hover:bg-gray-200 p-1">Change</button>} />
 
 
                     </div>

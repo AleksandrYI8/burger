@@ -152,6 +152,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                          name="image"
                                         id="image"
                                         placeholder="Enter image URL"
+                                        required
                                     />
                                 </div>
 
@@ -163,6 +164,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="title"
                                         id="title"
                                         placeholder="Enter product title"
+                                        required
                                     />
                                 </div>
 
@@ -174,6 +176,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="title_ru"
                                         id="title_ru"
                                         placeholder="Напишите название продукта"
+                                        required
                                     />
                                 </div>
 
@@ -186,6 +189,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="weight"
                                         id="weight"
                                         placeholder="Enter product weight"
+                                        required
                                     />
                                 </div>
 
@@ -197,6 +201,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="price"
                                         id="price"
                                         placeholder="Enter product price"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -210,6 +215,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="composition"
                                         id="composition"
                                         placeholder="Enter product composition"
+                                        required
                                     />
                                 </div>
 
@@ -220,6 +226,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="composition_ru"
                                         id="composition_ru"
                                         placeholder="Напишите состав продукта"
+                                        required
                                     />
                                 </div>
 
@@ -231,6 +238,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="description"
                                         id="description"
                                         placeholder="Enter product description"
+                                        required
                                     />
                                 </div>
 
@@ -241,6 +249,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="description_ru"
                                         id="description_ru"
                                         placeholder="Напишите описание продукта"
+                                        required
                                     />
                                 </div>
 
@@ -251,6 +260,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         name="category"
                                         id="category"
                                         placeholder="Enter product category"
+                                        required
                                     />
                                 </div>
                             </div>

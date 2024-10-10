@@ -25,9 +25,10 @@ interface Item {
 interface ModalProps {
     Button: ReactNode;
     id: string;
+    type: any
 }
 
-const Modal_product_patch: React.FC<ModalProps> = ({ Button, id }) => {
+const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
     const [item, setItem] = useState<Item | null>(null);
     const [isOpend, setIsOpend] = useState(false);
     const [file, setFile] = useState<File | null>(null);
@@ -78,31 +79,20 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id }) => {
 
             const fm = new FormData(e.target)
 
-            const menu: any = {}
+            const type: any = {}
 
-            fm.forEach((val: any, key: any) => (menu[key] = val))
+            fm.forEach((val: any, key: any) => (type[key] = val))
 
-            menu.images = imageUrl
+            type.images = imageUrl
 
-            menu.titles = {
-                ru: menu.title_ru,
-                en: menu.title,
+            type.titles = {
+                ru: type.title_ru,
+                en: type.title,
             }
 
-            menu.description = {
-                ru: menu.description_ru,
-                en: menu.description,
-            }
-
-            menu.composition = {
-                ru: menu.composition_ru,
-                en: menu.composition,
-            }
-
-
-            const res = await fetch(`http://localhost:3000/api/menu/${id}`, {
+            const res = await fetch(`http://localhost:3000/api/${type}/${id}`, {
                 method: "PATCH",
-                body: JSON.stringify(menu),
+                body: JSON.stringify(type),
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -132,7 +122,7 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id }) => {
     useEffect(() => {
         const fetchItem = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/menu/${id}`, {
+                const response = await fetch(`http://localhost:3000/api/${type}/${id}`, {
                     method: "GET",
                 });
 
@@ -224,87 +214,95 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id }) => {
                                     />
                                 </div>
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="weight">Weight (g)</label>
-                                    <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        type="text"
-                                        name="weight"
-                                        id="weight"
-                                        placeholder="Enter product weight"
-                                        defaultValue={item?.weight || ''}
-                                    />
-                                </div>
+                                {item?.weight &&
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="weight">Weight (g)</label>
+                                        <input
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            type="text"
+                                            name="weight"
+                                            id="weight"
+                                            placeholder="Enter product weight"
+                                            defaultValue={item?.weight || ''}
+                                        />
+                                    </div>
+                                }
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="price">Price ($)</label>
-                                    <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        type="text"
-                                        name="price"
-                                        id="price"
-                                        placeholder="Enter product price"
-                                        defaultValue={item?.price || ''}
-                                    />
-                                </div>
+                                {item?.price &&
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="price">Price ($)</label>
+                                        <input
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            type="text"
+                                            name="price"
+                                            id="price"
+                                            placeholder="Enter product price"
+                                            defaultValue={item?.price || ''}
+                                        />
+                                    </div>
+                                }
                             </div>
 
-                            <div className="w-full">
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition">Composition</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        name="composition"
-                                        id="composition"
-                                        placeholder="Enter product composition"
-                                        defaultValue={item?.composition?.en || ''}
-                                    />
-                                </div>
+                            {item?.composition &&
+                                <div className="w-full">
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition_ru">Composition RU</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        name="composition_ru"
-                                        id="composition_ru"
-                                        placeholder="Напишите состав продукта"
-                                        defaultValue={item?.composition?.ru || ''}
-                                    />
-                                </div>
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition">Composition</label>
+                                        <textarea
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            name="composition"
+                                            id="composition"
+                                            placeholder="Enter product composition"
+                                            defaultValue={item?.composition?.en || ''}
+                                        />
+                                    </div>
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Description</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        name="description"
-                                        id="description"
-                                        placeholder="Enter product description"
-                                        defaultValue={item?.description?.en || ''}
-                                    />
-                                </div>
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition_ru">Composition RU</label>
+                                        <textarea
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            name="composition_ru"
+                                            id="composition_ru"
+                                            placeholder="Напишите состав продукта"
+                                            defaultValue={item?.composition?.ru || ''}
+                                        />
+                                    </div>
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="description_ru">Description RU</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        name="description_ru"
-                                        id="description_ru"
-                                        placeholder="Напишите описание продукта"
-                                        defaultValue={item?.description?.ru || ''}
-                                    />
-                                </div>
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Description</label>
+                                        <textarea
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            name="description"
+                                            id="description"
+                                            placeholder="Enter product description"
+                                            defaultValue={item?.description?.en || ''}
+                                        />
+                                    </div>
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="category">Category</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        name="category"
-                                        id="category"
-                                        placeholder="Enter product category"
-                                        defaultValue={item?.category || ''}
-                                    />
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="description_ru">Description RU</label>
+                                        <textarea
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            name="description_ru"
+                                            id="description_ru"
+                                            placeholder="Напишите описание продукта"
+                                            defaultValue={item?.description?.ru || ''}
+                                        />
+                                    </div>
+
+                                    <div className='w-full'>
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="category">Category</label>
+                                        <textarea
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            name="category"
+                                            id="category"
+                                            placeholder="Enter product category"
+                                            defaultValue={item?.category || ''}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
+                            }
+
                         </div>
 
                         <button
