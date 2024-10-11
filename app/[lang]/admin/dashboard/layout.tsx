@@ -16,8 +16,10 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
             <div className="flex">
 
                 <aside className='w-[20%] fixed top-0 bottom-0 p-[1%] bg-orange-500 h-[100vh]'>
-                    <h1 className='text-3xl mb-[5%] font-medium'>Dashboard</h1>
 
+                    <Link href={"/admin/dashboard"}>
+                        <h1 className='text-3xl mb-[5%] font-medium'>Dashboard</h1>
+                    </Link>
                     <div className="flex flex-col text-xl mb-[70vh] gap-[1%]">
                         <Link href="/admin/dashboard/menu">
                             <button
