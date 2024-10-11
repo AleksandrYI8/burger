@@ -10,7 +10,7 @@ type Props = {
 };
 
 const CategoryReload: React.FC<Props> = ({ item, lang }) => {
-  const {setDataC, setLanguageData} = useAppContext(); 
+  const {setDataC, setLanguageData, setLoading} = useAppContext(); 
   const [data_prod, setData_prod] = useState<any[]>([]); 
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const CategoryReload: React.FC<Props> = ({ item, lang }) => {
         setData_prod(result.data);
       } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
+      } finally {
       }
     };
 

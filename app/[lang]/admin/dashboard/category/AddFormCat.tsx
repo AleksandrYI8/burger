@@ -86,9 +86,9 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
 
     return (
         <>
-            <form className="w-[30%]  fixed right-[1%] top-[1%] mx-auto space-y-6 text-white bg-orange-500 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
-                <div>
-                    <label className="block mb-2 text-[18px] font-medium" htmlFor="image">Category URL</label>
+            <form className="w-[30%]  fixed right-[1%] top-[1%] mx-auto space-y-6 text-black bg-orange-500 p-6 rounded-md shadow-md" onSubmit={onSubmit}>
+                <div className='text-white'>
+                    <label className="block mb-2 text-white text-[18px] font-medium" htmlFor="image">Category URL</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="file"
@@ -101,24 +101,26 @@ const AddFormCAt: React.FC<AddFormCatProps> = () => {
                 </div>
 
                 <div>
-                    <label className="block mb-2 text-[18px] font-medium" htmlFor="image">Category</label>
+                    <label className="block mb-2 text-white text-[18px] font-medium" htmlFor="image">Category</label>
                     <input
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
                         name="title"
                         id="title"
                         placeholder="Enter your category"
+                        defaultValue={""}
                     />
                 </div>
 
                 <div>
-                    <label className="block mb-2  text-[18px] font-medium" htmlFor="image">Category ru</label>
+                    <label className="block mb-2 text-white text-[18px] font-medium" htmlFor="image">Category ru</label>
                     <input
                         className="w-full px-4 py-2 border  border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         type="text"
                         name="title_ru"
                         id="title_ru"
                         placeholder="Напишите свою категорию"
+                        defaultValue={""}
                     />
                 </div>
 

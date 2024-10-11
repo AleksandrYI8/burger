@@ -18,21 +18,12 @@ type Props = {
 };
 
 const Products: React.FC<Props> = ({ translation, lang_ }) => {
-  const { dataC, languageData } = useAppContext();
-  const [loading, setLoading] = useState(true);
+  const { dataC, languageData , loading} = useAppContext();
 
   const hasData = Array.isArray(dataC) && dataC.length > 0;
 
-  useEffect(() => {
-    // Искусственная задержка для имитации долгой загрузки
-    const delay = setTimeout(() => {
-      if (dataC) {
-        setLoading(false);
-      }
-    }, 1000); // задержка в 2 секунды
-
-    return () => clearTimeout(delay); // очищаем таймер при размонтировании
-  }, [dataC]);
+  console.log(loading);
+  
 
   return (
     <>

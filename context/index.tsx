@@ -10,10 +10,12 @@ export function AppWrapper({ children }: { children: ReactNode }) {
         ru: "Ассортимент",
         en: "Assortment"
     });
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             try {
                 const res = await fetch("http://localhost:3000/api/menu", {
                     cache: "no-cache",
@@ -22,6 +24,8 @@ export function AppWrapper({ children }: { children: ReactNode }) {
                 setDataC(result.data); // Установка данных в состояние
             } catch (error) {
                 console.error("Ошибка при загрузке данных:", error);
+            } finally {
+                setLoading(false)
             }
         };
 
@@ -29,7 +33,7 @@ export function AppWrapper({ children }: { children: ReactNode }) {
     }, [setDataC]);
 
     return (
-        <AppContext.Provider value={{ dataC, setDataC, languageData, setLanguageData }}>
+        <AppContext.Provider value={{ dataC, setDataC, languageData, setLanguageData, loading, setLoading }}>
             {children}
         </AppContext.Provider>
     );

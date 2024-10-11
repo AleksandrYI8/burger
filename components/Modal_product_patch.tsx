@@ -79,37 +79,44 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
 
             const fm = new FormData(e.target)
 
-            const type: any = {}
+            const product: any = {}
 
-            fm.forEach((val: any, key: any) => (type[key] = val))
+            fm.forEach((val: any, key: any) => (product[key] = val))
 
-            type.images = imageUrl
+            product.images = imageUrl
 
-            type.titles = {
-                ru: type.title_ru,
-                en: type.title,
+            product.titles = {
+                ru: product.title_ru,
+                en: product.title,
             }
+
+            product.composition = product.composition_ru && product.composition
+                ? {
+                    ru: product.composition_ru,
+                    en: product.composition,
+                }
+                : item?.composition;
+
+            product.description = product.description_ru && product.description
+                ? {
+                    ru: product.description_ru,
+                    en: product.description,
+                }
+                : item?.description;
 
             const res = await fetch(`http://localhost:3000/api/${type}/${id}`, {
                 method: "PATCH",
-                body: JSON.stringify(type),
+                body: JSON.stringify(product),
                 headers: {
                     "Content-Type": "application/json"
                 }
             });
-
-
 
             console.log(res);
 
             if (res.status == 200 || res.status == 201) {
                 alert("success")
             }
-
-
-
-
-
 
         } catch (error) {
             setMessage("Something went wrong: " + error);
