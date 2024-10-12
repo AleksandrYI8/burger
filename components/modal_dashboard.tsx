@@ -142,24 +142,28 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
 
                             <div className="w-full flex flex-col gap-[2%]">
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="image">Image URL</label>
-                                    <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        type='file'
-                                        accept="image/*"
-                                        onChange={handleFileChange}
-                                        name="image"
-                                        id="image"
-                                        placeholder="Enter image URL"
-                                        required
-                                    />
-                                </div>
+                            <div className="w-full">
+                                <label
+                                    className="block mb-2 text-sm font-medium text-white"
+                                    htmlFor="image"
+                                >
+                                    Upload Image
+                                </label>
+                                <input
+                                    className="w-full  text-black  bg-gray-50 border border-gray-300 rounded-lg cursor-pointer file:w-[40%] file:p-3 file:mr-4 file:h-full file:rounded-lg file:border-0 file:font-medium file:bg-gray-300 file:text-black hover:file:bg-blue-100"
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                    name="image"
+                                    id="image"
+                                    required
+                                />
+                            </div>
 
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="title">Title</label>
                                     <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         type="text"
                                         name="title"
                                         id="title"
@@ -171,7 +175,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="title">Title_ru</label>
                                     <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         type="text"
                                         name="title_ru"
                                         id="title_ru"
@@ -184,7 +188,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="weight">Weight (g)</label>
                                     <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         type="text"
                                         name="weight"
                                         id="weight"
@@ -194,9 +198,9 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 </div>
 
                                 <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="price">Price ($)</label>
+                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="price">Price</label>
                                     <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         type="text"
                                         name="price"
                                         id="price"
@@ -211,7 +215,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition">Composition</label>
                                     <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         name="composition"
                                         id="composition"
                                         placeholder="Enter product composition"
@@ -222,7 +226,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="composition">Composition ru</label>
                                     <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         name="composition_ru"
                                         id="composition_ru"
                                         placeholder="Напишите состав продукта"
@@ -234,7 +238,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Description</label>
                                     <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         name="description"
                                         id="description"
                                         placeholder="Enter product description"
@@ -245,7 +249,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Description ru</label>
                                     <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         name="description_ru"
                                         id="description_ru"
                                         placeholder="Напишите описание продукта"
@@ -256,7 +260,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Category</label>
                                     <textarea
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
                                         name="category"
                                         id="category"
                                         placeholder="Enter product category"

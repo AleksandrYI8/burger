@@ -120,16 +120,22 @@ const ModalCategory: React.FC<Props> = ({ button }) => {
                         </button>
 
                         <div className="flex flex-col gap-[1vh]">
-                            <div className='text-white'>
-                                <label className="block mb-2 text-white text-[18px] font-medium" htmlFor="image">Category URL</label>
+
+                            <div className="w-full">
+                                <label
+                                    className="block mb-2 text-sm font-medium text-white"
+                                    htmlFor="image"
+                                >
+                                    Upload Image
+                                </label>
                                 <input
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full  text-black  bg-gray-50 border border-gray-300 rounded-lg cursor-pointer file:w-[40%] file:p-3 file:mr-4 file:h-full file:rounded-lg file:border-0 file:font-medium file:bg-gray-300 file:text-black hover:file:bg-blue-100"
                                     type="file"
                                     accept="image/*"
                                     onChange={handleFileChange}
-                                    name="images"
-                                    id="images"
-                                    placeholder="Enter image URL"
+                                    name="image"
+                                    id="image"
+                                    required
                                 />
                             </div>
 

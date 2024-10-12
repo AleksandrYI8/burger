@@ -42,7 +42,7 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
             </div>
           </div>
           <ul className=" flex gap-[2%] scrollbar-hidden pr-[5%] pl-[5%] overflow-x-auto ">
-            <AllButtonCategory translation={translation}/>
+            <AllButtonCategory lang={lang} translation={translation}/>
             {data.map((item: Category) => {
              return <CategoryReload item={item} lang={lang} />
             })}

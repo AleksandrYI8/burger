@@ -1,9 +1,8 @@
 "use client"
 
-
-import Image from 'next/image';
 import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
+import React, { ReactNode, useEffect } from 'react';
 
 interface DashboardProps {
     children: ReactNode;
@@ -11,6 +10,7 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode }) => {
 
+    const pathName = usePathname()
 
     return (
         <>
@@ -26,25 +26,25 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
                         <div className="flex flex-col text-[22px] gap-[1%]">
                             <Link href="/admin/dashboard/menu">
                                 <button
-                                    className='w-full gap-[10px] flex items-center hover:bg-gray-200  justify-start p-[1%] rounded-md hover:text-black transition-[.3s]'
+                                    className={`w-full  gap-[10px] flex items-center  justify-start p-[1%] rounded-md  transition-[.3s] ${pathName=== "/ru/admin/dashboard/menu" ? "bg-gray-200 text-black" : ""}`}
                                 >
                                     Menu</button>
                             </Link>
                             <Link href="/admin/dashboard/menu">
                                 <button
-                                    className='w-full hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-black transition-[.3s]'
-                                >Orders</button>
+                                    className={`w-full  gap-[10px] flex items-center  justify-start p-[1%] rounded-md  transition-[.3s] ${pathName=== "/ru/admin/dashboard/orders" ? "bg-gray-200 text-black" : ""}`}
+                                    >Orders</button>
                             </Link>
                             <Link href="/admin/dashboard/menu">
                                 <button
-                                    className='w-full hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-black transition-[.3s]'
-                                >Users</button>
+                                    className={`w-full  gap-[10px] flex items-center  justify-start p-[1%] rounded-md  transition-[.3s] ${pathName=== "/ru/admin/dashboard/users" ? "bg-gray-200 text-black" : ""}`}
+                                    >Users</button>
                             </Link>
 
                             <Link href="/admin/dashboard/category">
                                 <button
-                                    className='w-full hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-black transition-[.3s]'
-                                >Category</button>
+                                    className={`w-full gap-[10px] flex items-center  justify-start p-[1%] rounded-md  transition-[.3s] ${pathName=== "/ru/admin/dashboard/category" ? "bg-gray-200 text-black" : ""}`}
+                                    >Category</button>
                             </Link>
                         </div>
                     </div>

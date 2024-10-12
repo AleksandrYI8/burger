@@ -184,16 +184,21 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
                         <div className="flex w-full gap-[5%]">
                             <div className="w-full flex flex-col gap-[2%]">
 
-                                <div className='w-full'>
-                                    <label className="block mb-2 text-sm font-medium text-white" htmlFor="image">Image URL</label>
+                                <div className="w-full">
+                                    <label
+                                        className="block mb-2 text-sm font-medium text-white"
+                                        htmlFor="image"
+                                    >
+                                        Upload Image
+                                    </label>
                                     <input
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        type='file'
+                                        className="w-full  text-black  bg-gray-50 border border-gray-300 rounded-lg cursor-pointer file:w-[40%] file:p-3 file:mr-4 file:h-full file:rounded-lg file:border-0 file:font-medium file:bg-gray-300 file:text-black hover:file:bg-blue-100"
+                                        type="file"
                                         accept="image/*"
+                                        onChange={handleFileChange}
                                         name="image"
                                         id="image"
-                                        onChange={handleFileChange}
-                                        placeholder="Enter image URL"
+                                        required
                                     />
                                 </div>
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Modal from './hoc/modal';
 import Count_Modal from './count_modal';
 import { useAppContext } from "@/context";
-import { useEffect, useState } from "react";
 
 type Props = {
   translation: {

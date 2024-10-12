@@ -6,13 +6,6 @@ import { getDictionary } from "../dictionaries";
 export default async function Home({ params: { lang }, }: { params: { lang: string };}) {
     const translation = await getDictionary(lang)
 
-    const res = await fetch("http://localhost:3000/api/menu", {cache: "no-cache"});
-	console.log(res);
-
-	const {data} = await res.json();
-
-	console.log(data); 
-
     return (
         <Layout translation={translation} lang={lang}>
                  <Products translation={translation} lang_={lang}/>
