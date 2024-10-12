@@ -113,7 +113,7 @@ const ModalCategory: React.FC<Props> = ({ button }) => {
                         background: "rgba(0,0,0,0.5)",
                         backdropFilter: "blur(10px)"
                     }}>
-                    <form className="w-[50%]  relative flex-col pt-[2%] space-y-6 text-black bg-background p-6 rounded-md shadow-md" onSubmit={onSubmit}>
+                    <form className="w-[50%] relative flex-col p-[1%] pt-[2%] space-y-6 text-black bg-background rounded-[20px] shadow-md" onSubmit={onSubmit}>
 
                         <button className='absolute top-[2%] right-[1%] ' onClick={() => setIsOpend(false)}>
                             <Image src="/images/close_white.svg" alt="closebtn" width={25} height={25} />
