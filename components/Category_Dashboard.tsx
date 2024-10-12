@@ -9,8 +9,8 @@ const Category_Dashboard: React.FC<Props> = ({ item }) => {
 
     return (
 
-        <> <div className="relative mb-[1%] flex overflow-hidden bg-gray-200 gap-[10px] text-black w-[45%] h-[15vh] p-[1%]   rounded-md">
-            <Image className='rounded-md object-cover' src={item.images || ""} alt="category" width={150} height={150} />
+        <> <div className="relative mb-[1%] flex overflow-hidden bg-gray-200 gap-[10px] text-black w-[32%] h-[15vh] p-[1%]  rounded-md">
+            <Image className='rounded-md object-cover w-[100px] h-[100px]' src={item.images || ""} alt="category" width={150} height={150} />
             <div className="w-full flex justify-between">
                 
                 <div className="flex flex-col gap-[2px]">

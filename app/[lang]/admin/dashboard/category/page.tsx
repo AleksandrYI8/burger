@@ -5,6 +5,7 @@ import AddFormCAt from './AddFormCat';
 import Image from 'next/image';
 import AdminProductModal from '@/components/Dashboard_product_modal';
 import Category_Dashboard from '@/components/Category_Dashboard';
+import ModalCategory from '@/components/ModalCategory';
 
 interface PageProps {
   params: { lang: string };
@@ -21,17 +22,21 @@ export default async function Page({ params: { lang } }: PageProps) {
 
   return (
     <>
-      <div className="flex bg-background">
+      <div className="w-full bg-background">
 
 
-        <div className=" flex w-[65%] p-[1%] bg-background gap-[1%] flex-wrap">
-          {data.map((item: any) => {
-           return <Category_Dashboard item={item}/>
+          <ModalCategory button={
+            <button className='p-[5px] pr-[10px] pl-[10px] absolute top-[1%] right-[1%]  bg-orange-500 rounded-[15px]'>
+              Add product
+            </button>
+          } />
+
+        <div className="z-[1] flex flex-wrap gap-[1%] pt-[5%] p-[1%]">
+          {data.map((item: Category) => {
+            return <Category_Dashboard item={item} />
           })}
         </div>
-        <div className="w-[30%] ">
-          <AddFormCAt lang={lang} translation={translation} />
-        </div>
+
       </div>
     </>
   );

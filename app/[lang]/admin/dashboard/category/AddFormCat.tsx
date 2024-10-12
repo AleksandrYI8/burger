@@ -3,12 +3,8 @@
 import { Category } from '@/models/category';
 import React, { ReactNode, useState } from 'react';
 
-interface AddFormCatProps {
-    lang: string;
-    translation: Record<string, string>; // Пример структуры перевода
-}
 
-const AddFormCAt: React.FC<AddFormCatProps> = () => {
+const AddFormCAt: React.FC = () => {
 
     const [file, setFile] = useState<File | null>(null);
     const [image, setImage] = useState<string | null>(null);

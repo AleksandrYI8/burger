@@ -127,7 +127,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
             {isOpend && (
 
                 <div
-                    className="fixed  top-0 left-0 right-0 bottom-0 flex justify-center items-center"
+                    className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center z-[55]"
                     style={{
                         background: "rgba(0,0,0,0.5)",
                         backdropFilter: "blur(10px)"
@@ -149,7 +149,7 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
                                         type='file'
                                         accept="image/*"
                                         onChange={handleFileChange}
-                                         name="image"
+                                        name="image"
                                         id="image"
                                         placeholder="Enter image URL"
                                         required
