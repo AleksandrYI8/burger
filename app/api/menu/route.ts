@@ -13,7 +13,7 @@ export const GET = async () => {
     } catch (e: any) {
         return NextResponse.json({ success: false, message: e.message }, { status: 500 });
     }
-};
+};/*  */
 
 
 

@@ -198,7 +198,6 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
                                         onChange={handleFileChange}
                                         name="image"
                                         id="image"
-                                        required
                                     />
                                 </div>
 
