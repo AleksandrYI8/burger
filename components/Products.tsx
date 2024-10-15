@@ -21,12 +21,9 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
 
   const hasData = Array.isArray(dataC) && dataC.length > 0;
 
-  console.log(loading);
-  
-
   return (
     <>
-      <h1 className="text-[40px] text-black font-600 mt-[1vh]">
+      <h1 className="md:text-[25px] lg:text-[35px]  xl:text-[40px] pl-[1%] text-black font-600 lg:mt-[2vh] xl:mt-[1vh]">
         {languageData ? languageData[lang_] : ""}
       </h1>
 
@@ -47,7 +44,7 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
             dataC.map((item: any) => (
               <div
                 key={item._id}
-                className="p-[1%] rounded-[15px] bg-white mb-[2%] w-[30%] text-black"
+                className="p-[1%] rounded-[15px] bg-white mb-[2%] md:w-[46%] lg:w-[30%] text-black"
               >
                 <Image
                   className="w-full h-[30vh] rounded-md object-cover mb-[5px]"
@@ -56,21 +53,21 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
                   width={500}
                   height={500}
                 />
-                <h2 className="text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
-                <p className="text-[18px] mb-[15px]">{item.titles[lang_]}</p>
-                <p className="text-gray-400 mb-[5px]">{item.weight} {translation.main.gramm}</p>
+                <h2 className="lg:text-[23px] xl:text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
+                <p className="lg:text-[18px] xl:text-[18px] mb-[15px]">{item.titles[lang_]}</p>
+                <p className="text-gray-400 md:text-[14px] lg:text-[16px] mb-[5px]">{item.weight} {translation.main.gramm}</p>
 
-                <Modal Button={<button className="w-full text-center bg-gray-200 p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
+                <Modal Button={<button className="w-full text-center bg-gray-200 md:p-[7px] lg:p-[7px] xl:p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
                   {translation.main.add_button}
                 </button>}>
-                  <h1 className='text-[45px] font-[500 mb-[1%]'>{item.titles[lang_]}</h1>
+                  <h1 className='md:text-[30px] lg:text-[30px] xl:text-[45px] font-[500 mb-[1%]'>{item.titles[lang_]}</h1>
                   <div className="flex w-full gap-[1%] mb-[5%]">
-                    <div className="w-[45%]">
-                      <Image className="rounded-md object-cover" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
+                    <div className="w-[45%] pt-[1%]">
+                      <Image className="md:h-[45vh] lg:h-[40vh] rounded-md object-cover" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
                     </div>
                     <div className="w-[53%] p-[1%]">
-                      <p className='text-base mb-[15px]'>{item.description[lang_]}</p>
-                      <p className='text-base mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
+                      <p className='lg:text-[14px] xl:text-[16px] mb-[15px]'>{item.description[lang_]}</p>
+                      <p className='lg:text-[14px] xl:text-[16px] mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
                         {item.composition[lang_]}
                       </p>
                       <span className='text-gray-500'>{item.weight} {translation.main.gramm}</span>
@@ -84,8 +81,8 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
             ))
           ) : (
             <div className="flex justify-center items-center w-full pt-[10vh] mb-[10vh] gap-[10px]">
-              <h1 className="text-black text-[23px]">{translation.main.noProduct}</h1>
-              <Image src="/images/nothing.svg" alt="nothing" width={20} height={20} />
+              <h1 className="text-black md:text-[18px] lg:text-[20px] xl:text-[23px]">{translation.main.noProduct}</h1>
+              <Image className="md:w-[16px] lg:w-[18px] xl:w-[20px]" src="/images/nothing.svg" alt="nothing" width={20} height={20} />
             </div>
           )
         )}

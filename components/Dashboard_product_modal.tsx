@@ -41,7 +41,6 @@ const DashboardProductModal: React.FC<ModalProps> = ({ Button, id, type }) => {
         }
     };
 
-    console.log(id);
 
 
     return (
