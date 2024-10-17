@@ -17,12 +17,13 @@ type Props = {
 };
 
 const Products: React.FC<Props> = ({ translation, lang_ }) => {
-  const { dataC, languageData , loading} = useAppContext();
+  const { dataC, languageData, loading } = useAppContext();
 
   const hasData = Array.isArray(dataC) && dataC.length > 0;
 
   return (
     <>
+
       <h1 className="md:text-[25px] lg:text-[35px]  xl:text-[40px] pl-[1%] text-black font-600 lg:mt-[2vh] xl:mt-[1vh]">
         {languageData ? languageData[lang_] : ""}
       </h1>
@@ -60,14 +61,14 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
                 <Modal Button={<button className="w-full text-center bg-gray-200 md:p-[7px] lg:p-[7px] xl:p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
                   {translation.main.add_button}
                 </button>}>
-                  <h1 className='md:text-[30px] lg:text-[30px] xl:text-[45px] font-[500 mb-[1%]'>{item.titles[lang_]}</h1>
+                  <h1 className='md:text-[30px] lg:text-[30px] xl:text-[45px] font-[500] mb-[1%]'>{item.titles[lang_]}</h1>
                   <div className="flex w-full gap-[1%] mb-[5%]">
                     <div className="w-[45%] pt-[1%]">
                       <Image className="md:h-[45vh] lg:h-[40vh] rounded-md object-cover" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
                     </div>
                     <div className="w-[53%] p-[1%]">
-                      <p className='lg:text-[14px] xl:text-[16px] mb-[15px]'>{item.description[lang_]}</p>
-                      <p className='lg:text-[14px] xl:text-[16px] mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
+                      <p className='lg:text-[14px] xl:text-[18px] mb-[15px]'>{item.description[lang_]}</p>
+                      <p className='lg:text-[14px] xl:text-[18px] mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
                         {item.composition[lang_]}
                       </p>
                       <span className='text-gray-500'>{item.weight} {translation.main.gramm}</span>
