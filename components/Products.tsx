@@ -45,7 +45,7 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
             dataC.map((item: any) => (
               <div
                 key={item._id}
-                className="p-[1%] rounded-[15px] bg-white mb-[2%] sm:w-[49%] md:w-[46%] lg:w-[30%] text-black"
+                className="p-[1%] rounded-[15px] bg-white mb-[2%] sm:w-[49%] md:w-[32%] lg:w-[30%] text-black"
               >
                 <Image
                   className="w-full sm:h-[35vh] md:h-[30vh] rounded-md object-cover mb-[5px]"

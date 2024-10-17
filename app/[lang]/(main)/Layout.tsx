@@ -34,25 +34,25 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
                 <Image src="/images/burger.svg" alt="burder" width={250} height={250} />
               </div>
               <div className="">
-                <h1 className='mb-5 sm:leading-[27px] md:leading-[7vh]  lg:leading-[9vh] xl:leading-[9vh] 2xl:leading-[6vh] sm:text-[25px] md:text-[35px]  lg:text-[50px] font-bold text-white'> {translation.header.headerTitle} <br /> <span className='text-orange-600' >{translation.header.headerTitleSec}</span></h1>
+                <h1 className='mb-5 sm:leading-[27px] md:leading-[35px]  lg:leading-[9vh] xl:leading-[9vh] 2xl:leading-[6vh] sm:text-[25px] md:text-[35px]  lg:text-[50px] font-bold text-white'> {translation.header.headerTitle} <br /> <span className='text-orange-600' >{translation.header.headerTitleSec}</span></h1>
                 <p className='sm:text-[14px] md:text-[14px] lg:text-[16px] pl-[5px]'>{translation.header.deliv}<span className='font-bold'>599₽</span></p>
               </div>
             </div>
           </div>
-          <ul className=" flex sm:gap-[2%] sm:mb-[10px] md:mb-[0] md:gap-[3%] lg:gap-[2%] scrollbar-hidden pr-[5%] pl-[5%] overflow-x-auto ">
+          <ul className=" flex sm:gap-[2%] sm:mb-[10px] lg:mb-[0] md:gap-[3%] lg:gap-[2%] scrollbar-hidden pr-[5%] pl-[5%] overflow-x-auto ">
             <AllButtonCategory lang={lang} translation={translation} />
             {data.map((item: Category) => {
               return <CategoryReload item={item} lang={lang} />
             })}
           </ul>
-          <div className="sm:block md:hidden relative mb-[15vh]">
+          <div className="sm:block lg:hidden relative mb-[70px]">
             <ModalCart translation={translation}>
             </ModalCart>
           </div>
 
         </header>
         <div className="flex w-full">
-          <aside className='sm:hidden md:block md:mt-[5vh] lg:mt-[13vh] xl:mt-[10vh] sticky top-[5%] h-[20vh]  rounded-[15px] w-[25%] bg-white text-black ml-[5%] p-[1%]'>
+          <aside className='sm:hidden lg:block md:mt-[5vh] lg:mt-[13vh] xl:mt-[10vh] sticky top-[5%] h-[20vh]  rounded-[15px] w-[25%] bg-white text-black ml-[5%] p-[1%]'>
             <div className="flex  justify-between border-b mb-[10px] items-center">
               <h2 className='md:text-[16px] lg:text-[23px] xl:text-[25px] font-bold'>{translation.acide.cart}</h2>
               <p className='md:text-[13px] lg:text-[16px] bg-gray-200 p-[6px] pt-[2px] md:pb-[0] xl:mb-[2px] rounded'>0</p>
@@ -61,7 +61,7 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
               <p>тут покачто пусто :(</p>
             </div>
           </aside>
-          <main className='sm:w-[90%] sm:ml-[5%] md:ml-[0] md:w-[75%] sm:pl-[0] md:pl-[2%] bg-gray-100' >
+          <main className='sm:w-[90%] sm:ml-[5%] lg:ml-[0] lg:w-[75%] sm:pl-[0] lg:pl-[2%] bg-gray-100' >
             {children}
           </main>
         </div>
