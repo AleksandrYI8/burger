@@ -61,7 +61,7 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
               <p>тут покачто пусто :(</p>
             </div>
           </aside>
-          <main className='w-[75%] pl-[2%] bg-gray-100' >
+          <main className='sm:w-[90%] sm:ml-[5%] md:ml-[0] md:w-[75%] sm:pl-[0] md:pl-[2%] bg-gray-100' >
             {children}
           </main>
         </div>

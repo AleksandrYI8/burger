@@ -11,7 +11,7 @@ const ModalCart: React.FC<ModalProps> = ({ translation }) => {
 
     const [isOpend, setIsOpend] = useState(false)
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (isOpend) {
             document.body.style.overflow = 'hidden'; // Отключаем скролл
         } else {
@@ -23,7 +23,7 @@ const ModalCart: React.FC<ModalProps> = ({ translation }) => {
             document.body.style.overflow = '';
         };
     }, [isOpend]);
-
+ */
 
     return (
         <>
@@ -39,8 +39,13 @@ const ModalCart: React.FC<ModalProps> = ({ translation }) => {
                 {isOpend && (
                     <div className=" text-black  p-[1%] h-fit bg-white">
                         <div className="mb-[10px]">
-                            <p>тут покачто пусто :(</p>
+                            <p className='text-[18px]'>тут покачто пусто :(</p>
                         </div>
+                        <div className="flex items-center mb-[3%] justify-between border-t border-gray-200 pt-[2%] p-[1%]">
+                            <p className='text-[16px]'>Итогo</p>
+                            <p>0 ₽</p>
+                        </div>
+                        <button className='w-full mb-[2%] text-[17px] flex justify-center items-center p-[2%] text-white rounded-[15px] bg-orange-500'>Оформить заказ</button>
                         <div className="flex justify-between">
                             <div className="flex gap-[2px] items-center">
                                 <Image src="/images/delivery.svg" alt="delivery" width={20} height={20} />

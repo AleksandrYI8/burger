@@ -24,11 +24,11 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
   return (
     <>
 
-      <h1 className="md:text-[25px] lg:text-[35px]  xl:text-[40px] pl-[1%] text-black font-600 lg:mt-[2vh] xl:mt-[1vh]">
+      <h1 className="sm:text-[30px] md:text-[25px] lg:text-[35px]  xl:text-[40px] pl-[1%] text-black font-600 lg:mt-[2vh] xl:mt-[1vh]">
         {languageData ? languageData[lang_] : ""}
       </h1>
 
-      <div className="w-full flex-wrap bg-gray-100 flex p-[1%] gap-[2%]">
+      <div className="w-full flex-wrap bg-gray-100 flex sm:p-[0] md:p-[1%] gap-[2%]">
         {loading ? (
           <div className="flex justify-center items-center w-full h-[30vh]">
 
@@ -45,30 +45,30 @@ const Products: React.FC<Props> = ({ translation, lang_ }) => {
             dataC.map((item: any) => (
               <div
                 key={item._id}
-                className="p-[1%] rounded-[15px] bg-white mb-[2%] md:w-[46%] lg:w-[30%] text-black"
+                className="p-[1%] rounded-[15px] bg-white mb-[2%] sm:w-[49%] md:w-[46%] lg:w-[30%] text-black"
               >
                 <Image
-                  className="w-full h-[30vh] rounded-md object-cover mb-[5px]"
+                  className="w-full sm:h-[35vh] md:h-[30vh] rounded-md object-cover mb-[5px]"
                   src={item.images || ""}
                   alt="burger"
                   width={500}
                   height={500}
                 />
-                <h2 className="lg:text-[23px] xl:text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
-                <p className="lg:text-[18px] xl:text-[18px] mb-[15px]">{item.titles[lang_]}</p>
-                <p className="text-gray-400 md:text-[14px] lg:text-[16px] mb-[5px]">{item.weight} {translation.main.gramm}</p>
+                <h2 className="sm:text-[20px] lg:text-[23px] xl:text-[25px] font-600 mb-[5px]">{item.price} ₽</h2>
+                <p className="sm:text-[17px] lg:text-[18px] xl:text-[18px] mb-[15px]">{item.titles[lang_]}</p>
+                <p className="text-gray-400 sm:text-[14px] md:text-[14px] lg:text-[16px] mb-[5px]">{item.weight} {translation.main.gramm}</p>
 
-                <Modal Button={<button className="w-full text-center bg-gray-200 md:p-[7px] lg:p-[7px] xl:p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
+                <Modal Button={<button className="w-full text-center bg-gray-200 sm:p-[5px] md:p-[7px] lg:p-[7px] xl:p-[10px] rounded-xl active:scale-[.9] transition-[.2s]">
                   {translation.main.add_button}
                 </button>}>
-                  <h1 className='md:text-[30px] lg:text-[30px] xl:text-[45px] font-[500] mb-[1%]'>{item.titles[lang_]}</h1>
+                  <h1 className='sm:text-[25px] md:text-[30px] lg:text-[30px] xl:text-[45px] font-[500] mb-[1%]'>{item.titles[lang_]}</h1>
                   <div className="flex w-full gap-[1%] mb-[5%]">
                     <div className="w-[45%] pt-[1%]">
-                      <Image className="md:h-[45vh] lg:h-[40vh] rounded-md object-cover" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
+                      <Image className="sm:h-[45vh] md:h-[45vh] lg:h-[40vh] rounded-md object-cover" src={item.images || ""} alt="burger_modal" width={1000} height={1000} />
                     </div>
                     <div className="w-[53%] p-[1%]">
-                      <p className='lg:text-[14px] xl:text-[18px] mb-[15px]'>{item.description[lang_]}</p>
-                      <p className='lg:text-[14px] xl:text-[18px] mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
+                      <p className='sm:text-[14px] lg:text-[14px] xl:text-[18px] mb-[15px]'>{item.description[lang_]}</p>
+                      <p className='sm:text-[14px] lg:text-[14px] xl:text-[18px] mb-[10px]'><span className='font-bold text-base'>{translation.modal.composition}</span> <br />
                         {item.composition[lang_]}
                       </p>
                       <span className='text-gray-500'>{item.weight} {translation.main.gramm}</span>
