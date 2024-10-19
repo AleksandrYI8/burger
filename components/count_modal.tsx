@@ -25,12 +25,12 @@ const Count_Modal: React.FC<Count_ModalProps> = ({item, btn_add}) => {
                 {btn_add}
             </button>
 
-            <div className="bg-gray-200 flex justify-between w-[15%] items-center rounded-[15px]">
-                <button onClick={() => setCount(count - 1)} className="w-[40%] ms:text-ms lg:text-lg scale-[1.5]  text-center p-[10px] rounded-[15px] ">
+            <div className="bg-gray-200 flex justify-between  w-hit items-center rounded-[15px]">
+                <button onClick={() => setCount(count - 1)} className="w-[40%] xs:text-[14px] ms:text-ms lg:text-lg scale-[1.5]  text-center p-[10px] rounded-[15px] ">
                     -
                 </button>
                 <span>{count}</span>
-                <button onClick={() => setCount(count + 1)} className="w-[40%] ms:text-ms lg:text-lg scale-[1.5]  text-center p-[10px] rounded-[15px] ">
+                <button onClick={() => setCount(count + 1)} className="w-[40%] xs:text-[14px] ms:text-ms lg:text-lg scale-[1.5]  text-center p-[10px] rounded-[15px] ">
                     +
                 </button>
             </div>

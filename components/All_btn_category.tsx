@@ -24,7 +24,7 @@ const AllButtonCategory: React.FC<Props> = ({ translation, lang }) => {
         <>
             <li
                 onClick={SetALL}
-                className={`sm:text-[14px] md:text-[14px] lg:text-[16px] flex whitespace-nowrap overflow-hidden min-w-fit gap-[5px] justify-center pt-[5px] pb-[5px] p-[8px] rounded-[15px] text-black items-center ${languageData[lang] === translation.header.category.all ? "bg-background" : "bg-white"}`}>
+                className={`xs:text-[13px] sm:text-[14px] md:text-[14px] lg:text-[16px] flex whitespace-nowrap overflow-hidden min-w-fit gap-[5px] justify-center xs:pt-[2px] xs:pb-[2px] xs:p-[5px] sm:pt-[5px] sm:pb-[5px] sm:p-[8px] rounded-[15px] text-black items-center ${languageData[lang] === translation.header.category.all ? "bg-background" : "bg-white"}`}>
                 {translation.header.category.all}
             </li >
         </>
