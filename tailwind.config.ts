@@ -13,6 +13,9 @@ const config: Config = {
         background: 'rgba(255, 171, 8, 1)', // добавлен цвет в формате RGBA
         foreground: 'var(--foreground)',
       },
+      screens: {
+        xs: '320px', // добавление кастомного брейкпоинта для 320px
+      },
     },
   },
   plugins: [

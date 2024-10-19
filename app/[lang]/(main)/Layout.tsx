@@ -4,7 +4,6 @@ import CategoryReload from '@/components/CategoryReload';
 import React, { useState } from 'react';
 import { AppWrapper } from '@/context';
 import AllButtonCategory from '@/components/All_btn_category';
-import Modal from '@/components/hoc/modal';
 import ModalCart from '@/components/ModalCart';
 
 interface LayoutProps {
@@ -27,13 +26,13 @@ const Layout = async ({ children, translation, lang }: LayoutProps) => {
     <AppWrapper>
       <div className="bg-gray-100">
         <header className=' bg-gray-100 w-full mb-[3vh]'>
-          <div className="bg-background rounded-b-[60%] sm:mb-[15px] md:mb-[30px]">
+          <div className=" bg-background rounded-b-[60%] sm:mb-[15px] md:mb-[30px]">
             <Image className='mx-auto pt-[10px] mb-[40px]' src="/images/logo.svg" alt="logo" width={150} height={100} />
-            <div className="flex mx-auto sm:pb-[30px] md:pb-[60px] sm:gap-[20px] md:gap-[30px] lg:gap-[50px] justify-center items-center">
-              <div className="sm:w-[20%] md:w-[20%] lg:w-[20%] xl:w-fit">
+            <div className="xs:flex xs:flex-col-reverse sm:flex mx-auto pb-[25px] sm:pb-[30px] md:pb-[60px] sm:gap-[20px] md:gap-[30px] lg:gap-[50px] justify-center items-center">
+              <div className="xs:w-[30%] sm:w-[20%] md:w-[20%] lg:w-[20%] xl:w-fit">
                 <Image src="/images/burger.svg" alt="burder" width={250} height={250} />
               </div>
-              <div className="">
+              <div className="flex flex-col justify-center items-center">
                 <h1 className='mb-5 sm:leading-[27px] md:leading-[35px]  lg:leading-[9vh] xl:leading-[9vh] 2xl:leading-[6vh] sm:text-[25px] md:text-[35px]  lg:text-[50px] font-bold text-white'> {translation.header.headerTitle} <br /> <span className='text-orange-600' >{translation.header.headerTitleSec}</span></h1>
                 <p className='sm:text-[14px] md:text-[14px] lg:text-[16px] pl-[5px]'>{translation.header.deliv}<span className='font-bold'>599₽</span></p>
               </div>
