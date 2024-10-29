@@ -16,7 +16,7 @@ const Products_Dashboard: React.FC<Props> = ({ item }) => {
                 className="p-[1%] flex gap-[2%]  rounded-[15px] bg-white mb-[2%] text-black"
             >
                 <Image
-                    className="w-[20%] object-cover rounded-[10px] mb-[5px]"
+                    className="w-[20%] h-[30vh] object-cover rounded-[10px] mb-[5px]"
                     src={item.images || ""}
                     alt="burger"
                     width={500}
