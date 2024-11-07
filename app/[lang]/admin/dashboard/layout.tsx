@@ -1,5 +1,6 @@
 "use client"
 
+import { AppWrapper } from '@/context';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { ReactNode, useEffect } from 'react';
@@ -13,7 +14,9 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
     const pathName = usePathname()
 
     return (
-        <>
+    <AppWrapper>
+
+
             <div className="flex">
 
                 <aside className='w-[20%] flex flex-col justify-between fixed top-0 bottom-0 p-[1%] bg-orange-500 h-[100vh]'>
@@ -27,7 +30,7 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
                             <Link href="/admin/dashboard/menu">
                                 <button
                                     className={`w-full  gap-[10px] flex items-center  justify-start p-[1%] rounded-md  transition-[.3s] ${pathName=== "/ru/admin/dashboard/menu" ? "bg-gray-200 text-black" : ""}`}
-                                >
+                                    >
                                     Menu</button>
                             </Link>
                             <Link href="/admin/dashboard/menu">
@@ -52,7 +55,7 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
                     <Link href="/">
                         <button
                             className='w-full text-[22px] hover:bg-gray-200 flex justify-start p-[1%] rounded-md hover:text-black transition-[.3s]'
-                        >Log out</button>
+                            >Log out</button>
                     </Link>
 
 
@@ -61,7 +64,7 @@ const Dashboard: React.FC<DashboardProps> = ({ children }: { children: ReactNode
                     {children}
                 </main>
             </div>
-        </>
+    </AppWrapper>
     );
 };
 

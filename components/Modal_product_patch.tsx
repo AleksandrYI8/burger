@@ -1,5 +1,6 @@
 "use client";
 
+import { useAppContext } from '@/context';
 import Image from 'next/image';
 import React, { ReactNode, useEffect, useState } from 'react';
 
@@ -34,6 +35,7 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
     const [file, setFile] = useState<File | null>(null);
     const [image, setImage] = useState<string | null>(null);
     const [message, setMessage] = useState("");
+    const { dataCat } = useAppContext();
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
@@ -302,14 +304,12 @@ const Modal_product_patch: React.FC<ModalProps> = ({ Button, id, type }) => {
                                     </div>
 
                                     <div className='w-full'>
-                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="category">Category</label>
-                                        <textarea
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                            name="category"
-                                            id="category"
-                                            placeholder="Enter product category"
-                                            defaultValue={item?.category || ''}
-                                        />
+                                        <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Category</label>
+                                        <select className='w-full px-4 outline-none py-2 border border-gray-300 rounded-md' name="category" id="category">
+                                            {dataCat.map((item: any) => (
+                                                <option key={item._id} value={item.title}>{item.title}</option>
+                                            ))}
+                                        </select>
                                     </div>
                                 </div>
                             }

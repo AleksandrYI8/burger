@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useAppContext } from '@/context';
 
 type Props = {
     button: any
@@ -12,6 +13,10 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
     const [file, setFile] = useState<File | null>(null);
     const [image, setImage] = useState<string | null>(null);
     const [message, setMessage] = useState("");
+    const { dataCat } = useAppContext();
+
+    console.log(dataCat);
+    
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
@@ -19,11 +24,10 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
             setImage(URL.createObjectURL(event.target.files[0]));
         }
     };
-
-
+    
     async function onSubmit(e: any) {
         e.preventDefault()
-
+        
 
         if (!file) {
             setMessage("Please select a file.");
@@ -142,23 +146,23 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
 
                             <div className="w-full flex flex-col gap-[2%]">
 
-                            <div className="w-full">
-                                <label
-                                    className="block mb-2 text-sm font-medium text-white"
-                                    htmlFor="image"
-                                >
-                                    Upload Image
-                                </label>
-                                <input
-                                    className="w-full  text-black  bg-gray-50 border border-gray-300 rounded-lg cursor-pointer file:w-[40%] file:p-3 file:mr-4 file:h-full file:rounded-lg file:border-0 file:font-medium file:bg-gray-300 file:text-black hover:file:bg-blue-100"
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleFileChange}
-                                    name="image"
-                                    id="image"
-                                    required
-                                />
-                            </div>
+                                <div className="w-full">
+                                    <label
+                                        className="block mb-2 text-sm font-medium text-white"
+                                        htmlFor="image"
+                                    >
+                                        Upload Image
+                                    </label>
+                                    <input
+                                        className="w-full  text-black  bg-gray-50 border border-gray-300 rounded-lg cursor-pointer file:w-[40%] file:p-3 file:mr-4 file:h-full file:rounded-lg file:border-0 file:font-medium file:bg-gray-300 file:text-black hover:file:bg-blue-100"
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleFileChange}
+                                        name="image"
+                                        id="image"
+                                        required
+                                    />
+                                </div>
 
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="title">Title</label>
@@ -259,13 +263,11 @@ const Modal_dashboard: React.FC<Props> = ({ button }) => {
 
                                 <div className='w-full'>
                                     <label className="block mb-2 text-sm font-medium text-white" htmlFor="description">Category</label>
-                                    <textarea
-                                        className="w-full px-4 outline-none py-2 border border-gray-300 rounded-md"
-                                        name="category"
-                                        id="category"
-                                        placeholder="Enter product category"
-                                        required
-                                    />
+                                    <select className='w-full px-4 outline-none py-2 border border-gray-300 rounded-md' name="category" id="category">
+                                        {dataCat.map((item : any) => (
+                                            <option key={item._id} value={item.title}>{item.title}</option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
                         </div>
